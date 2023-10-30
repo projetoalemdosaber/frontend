@@ -10,7 +10,9 @@ export default {
         logoOrange : "rgba(234, 159, 49)",
         logoPink: "rgba(253, 176, 143)",
         logoGreen: "rgba(114, 121, 46)",
-        logoRed: "rgba(229, 84, 60)"
+        logoRed: "rgba(229, 84, 60)",
+        // bege: "rgb(255, 233, 199)",
+        bege: "rgb(255, 244, 230)"
       }
     },
   },
