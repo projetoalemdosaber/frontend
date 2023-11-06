@@ -1,6 +1,37 @@
-import { Link } from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom";
+import {ChangeEvent, useContext, useEffect, useState} from "react";
+import {AuthContext} from "../../contexts/AuthContext";
+import UsuarioLogin from "../../models/UsuarioLogin.ts";
+import {RotatingLines} from "react-loader-spinner";
+
 
 function Login() {
+
+    const navigate = useNavigate();
+    const { usuario, handleLogin, isLoading } = useContext(AuthContext);
+
+    const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>(
+        {} as UsuarioLogin
+    );
+
+    useEffect(() => {
+        if (usuario.token !== "") {
+            navigate('/home')
+        }
+    }, [usuario])
+
+    function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
+        setUsuarioLogin({
+            ...usuarioLogin,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    function login(e: ChangeEvent<HTMLFormElement>) {
+        e.preventDefault()
+        handleLogin(usuarioLogin)
+    } 
+    function Login() {
     return (
         <>
             <div className="bg-gradient-to-t from-logoPink to-logoOrange flex lg:grid-cols-2 h-screen justify-center font-bold">
@@ -47,5 +78,5 @@ function Login() {
         </>
     );
 }
-
+}
 export default Login;
