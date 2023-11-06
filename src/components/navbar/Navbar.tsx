@@ -13,7 +13,7 @@ function Navbar() {
 
     return (
         <>
-            <header className='w-full bg-logoRed/90 backdrop-blur-sm text-white flex justify-center py-4 fixed'>
+            <header className='w-full bg-logoRed/90 backdrop-blur-sm text-white flex justify-center py-4 fixed z-50'>
 
                 <div className="container flex justify-between text-md">
                     <div className="container flex justify-between items-center">

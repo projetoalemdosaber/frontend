@@ -1,7 +1,12 @@
 function Home() {
     return (
         <>
-            <div className="bg-gradient-to-t from-logoPink to-logoOrange flex justify-center items-center h-screen w-full">
+            <div className="bg-logoPink/50 relative flex justify-center items-center h-screen w-full">
+                {/* <video 
+                    src="/img/pexels-c-technical-6334253 (720p).mp4" 
+                    className="absolute top-0 left-0 -z-10"
+                    autoPlay muted loop/> */}
+                <img src="/img/pexels-keira-burton-6147009.jpg" className="absolute top-0 left-0 -z-10" alt="" />
                 <div className='text-bege flex justify-evenly items-center'>
                     <div className="flex flex-col items-center justify-center py-4 w-2/5">
                         <h1 className='xl:text-5xl text-4xl font-bold mb-8 text-center'>
@@ -11,7 +16,6 @@ function Home() {
                             Venham expandir seu conhecimento em uma rede social educacional de apoio. Descubra novos horizontes com o Além do Saber!
                         </p>
                     </div>
-                    <img src="/img/146135330.png" alt="Logo" className="max-w-[60%] h-4/5" />
                 </div>
             </div>
 
