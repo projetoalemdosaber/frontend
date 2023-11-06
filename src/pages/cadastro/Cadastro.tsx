@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import Usuario from "../../models/Usuario";
 import { cadastrarUsuario } from "../../services/Service";
+import { RotatingLines } from "react-loader-spinner";
 
 function Cadastro() {
 
@@ -55,7 +56,7 @@ function Cadastro() {
             alert('Erro ao cadastrar o Usuário')
         }
       } else {
-          alert('Dados inconsistentes. Verifique as informações de cadastro.')
+          alert('Senha e Confimar senha precisam ser iguais. Sua senha precisa ter 8 caracteres ou mais.')
           setUsuario({ ...usuario, senha: "" })
           setConfirmarSenha("")
       }
@@ -82,6 +83,7 @@ function Cadastro() {
               className="rounded p-2"
               value={usuario.nome}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+              required
             />
           </div>
           <div className="flex flex-col w-full">
@@ -94,18 +96,20 @@ function Cadastro() {
               className="rounded p-2"
               value={usuario.dataNascimento}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+              required
             />
           </div>
           <div className="flex flex-col w-full">
             <label htmlFor="usuario" className="text-white text-xl font-bold">E-mail</label>
             <input
-              type="text"
+              type="email"
               id="usuario"
               name="usuario"
               placeholder="Digite seu e-mail"
               className="rounded p-2"
               value={usuario.usuario}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+              required
             />
           </div>
           <div className="flex flex-col w-full">
@@ -130,6 +134,7 @@ function Cadastro() {
               className="rounded p-2"
               value={usuario.senha}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+              required
             />
           </div>
           <div className="flex flex-col w-full">
@@ -142,6 +147,7 @@ function Cadastro() {
               className="rounded p-2"
               value={confirmarSenha}
               onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
+              required
             />
           </div>
 
