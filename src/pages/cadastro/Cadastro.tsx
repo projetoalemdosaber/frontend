@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import Usuario from "../../models/Usuario";
 import { cadastrarUsuario } from "../../services/Service";
 import { RotatingLines } from "react-loader-spinner";
+import { toastAlerta } from "../../utils/toastAlerta";
 
 function Cadastro() {
 
@@ -50,13 +51,13 @@ function Cadastro() {
 
         try {
             await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario)
-            alert('Usuário cadastrado com sucesso')
+            toastAlerta('Usuário cadastrado com sucesso', 'sucesso')
 
         } catch (error) {
-            alert('Erro ao cadastrar o Usuário')
+            toastAlerta('Erro ao cadastrar o Usuário', 'erro')
         }
       } else {
-          alert('Senha e Confimar senha precisam ser iguais. Sua senha precisa ter 8 caracteres ou mais.')
+          toastAlerta('Senha e Confimar senha precisam ser iguais. Sua senha precisa ter 8 caracteres ou mais.', 'info')
           setUsuario({ ...usuario, senha: "" })
           setConfirmarSenha("")
       }

@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
@@ -41,6 +43,7 @@ function FormularioTema() {
             navigate('/login');
         }
     }, [token]);
+
     useEffect(() => {
         if (id !== undefined) {
             buscarPorId(id)
@@ -105,7 +108,7 @@ function FormularioTema() {
     }
 
     return (
-        <div className="container flex flex-col items-center justify-center mx-auto">
+        <div className="h-screen w-full bg-bege flex flex-col items-center justify-center mx-auto">
             
             <h1 className="text-4xl text-center my-8">
                 
@@ -114,10 +117,20 @@ function FormularioTema() {
 
             <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoTema}>
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="descricao">Descrição do Tema</label>
+                    <label htmlFor="assunto">Assunto:</label>
                     <input
                         type="text"
-                        placeholder="Descreva aqui seu tema"
+                        placeholder="Assunto do tema..."
+                        name='assunto'
+                        className="border-2 border-slate-700 rounded p-2"
+                        value={tema.assunto}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                    />
+
+                    <label htmlFor="descricao">Descrição:</label>
+                    <input
+                        type="text"
+                        placeholder="Descreva aqui seu tema..."
                         name='descricao'
                         className="border-2 border-slate-700 rounded p-2"
                         value={tema.descricao}
@@ -125,8 +138,7 @@ function FormularioTema() {
                     />
                 </div>
                 <button
-                    className="rounded text-slate-100 bg-indigo-400 
-                    hover:bg-indigo-800 w-1/2 py-2 mx-auto flex justify-center" type="submit">
+                    className="w-2/5 py-2 mx-auto flex justify-center text-xl font-semibold rounded text-slate-100 transition-all duration-300 bg-green-500 hover:bg-green-400 hover:w-[39%]" type="submit">
 
                     {isLoading ?
                         <RotatingLines

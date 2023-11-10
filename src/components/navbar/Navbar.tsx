@@ -1,19 +1,30 @@
 // import { useContext } from "react"
- import { useState } from "react";
+ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom"
-// import { AuthContext } from "../../contexts/AuthContext"
+import { AuthContext } from "../../contexts/AuthContext"
+import { toastAlerta } from "../../utils/toastAlerta";
 
 function Navbar() {
 
     const [logado, setLogado] = useState(false);
+    const { usuario, handleLogout } = useContext(AuthContext)
 
     const handleLogin = () => {
-        setLogado(prev => !prev)
+        handleLogout()
+        toastAlerta('Usuário deslogado com sucesso', 'sucesso')
+        setLogado(false)
     }
+
+    useEffect(() => {
+        if (usuario.token !== "") {
+            setLogado(true)
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [usuario])
 
     return (
         <>
-            <header className='w-full bg-logoRed/90 backdrop-blur-sm text-white flex justify-center py-4 fixed z-50'>
+            <header className='w-full bg-logoRed backdrop-blur-sm text-white flex justify-center py-4 fixed z-50 top-0'>
 
                 <div className="container flex justify-between text-md">
                     <div className="container flex justify-between items-center">
@@ -23,14 +34,19 @@ function Navbar() {
                         </div>
 
                         <nav className='flex gap-8 font-semibold'>
-                            <Link to='/home' className='hover:font-bold'>Inicio</Link>
-                            <Link to='/cadastro' className='hover:font-bold'>Cadastre-se</Link>
-                            
+                            <Link to='/home' className='hover:font-bold'>Inicio</Link>                            
                             {
                                 logado ?
-                                <Link to='/login' className='hover:font-bold' onClick={handleLogin}>Sair</Link>
+                                    <>
+                                        <Link to='/temas' className='hover:font-bold'>Temas</Link>
+                                        <Link to='/cadastroTema' className='hover:font-bold'>Cadastrar Tema</Link>
+                                        <Link to='/' className='hover:font-bold' onClick={handleLogin}>Sair</Link>
+                                    </>
                                 :
-                                <Link to='/login' className='hover:font-bold' onClick={handleLogin}>Login</Link>
+                                <>
+                                    <Link to='/cadastro' className='hover:font-bold'>Cadastre-se</Link>
+                                    <Link to='/login' className='hover:font-bold'>Login</Link>
+                                </>
                             }
                             
                         </nav>

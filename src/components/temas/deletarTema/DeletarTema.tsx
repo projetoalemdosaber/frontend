@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 
@@ -73,7 +75,7 @@ function DeletarTema() {
     }
 
 return (
-    <div className='container w-1/3 mx-auto'>
+    <div className='h-screen container w-1/3 mx-auto flex flex-col justify-center items-center'>
         <h1 className='text-4xl text-center my-4'>Deletar Tema</h1>
 
         <p className='text-center font-semibold mb-4'>
@@ -82,8 +84,9 @@ return (
 
         <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
             <header className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>
-                Tema
+                {tema.assunto}
             </header>
+
             <p className='p-8 text-3xl bg-slate-200 h-full'>{tema.descricao}</p>
 
             <div className="flex">

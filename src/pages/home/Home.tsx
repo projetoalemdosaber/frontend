@@ -2,10 +2,6 @@ function Home() {
     return (
         <>
             <div className="bg-logoPink/50 relative flex justify-center items-center h-screen w-full">
-                {/* <video 
-                    src="/img/pexels-c-technical-6334253 (720p).mp4" 
-                    className="absolute top-0 left-0 -z-10"
-                    autoPlay muted loop/> */}
                 <img src="/img/pexels-keira-burton-6147009.jpg" className="absolute top-0 left-0 -z-10" alt="" />
                 <div className='text-bege flex justify-evenly items-center'>
                     <div className="flex flex-col items-center justify-center py-4 w-2/5">
@@ -24,8 +20,11 @@ function Home() {
                     Sobre Nós
                 </h2>
                 <p className="text-justify text-xl">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores aliquam placeat quaerat reprehenderit sapiente suscipit nisi illo, nostrum amet itaque nobis error incidunt provident repudiandae quia qui officiis asperiores totam.
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut quas exercitationem, cupiditate molestias voluptate ipsa blanditiis dolores cumque quia? Quisquam provident tempora possimus est nostrum omnis cupiditate expedita incidunt tenetur?
+                Além do Saber é uma plataforma de mídia social dedicada a promover a educação de alta qualidade. Aqui, criamos um espaço que favorece a conectividade e a interação entre indivíduos em um ambiente acessível e sem custos, pois acreditamos firmemente no poder da colaboração e do apoio mútuo para fazer uma diferença real.
+                <br/>
+                Nosso principal objetivo, nesta rede social, é contribuir para o cumprimento do Objetivo de Desenvolvimento Sustentável 4 da ONU (Educação de Qualidade), que estabelece a meta de, até 2030, garantir que todos os jovens e uma parcela significativa dos adultos, tanto homens quanto mulheres, estejam alfabetizados e tenham adquirido conhecimentos fundamentais em matemática.
+                <br/>
+                Esta plataforma desempenha um importante papel na disseminação da educação de maneira gratuita e na reunião de pessoas de diversas origens em prol do avanço educacional. Fornecemos uma rede de apoio para capacitar aqueles que podem estar se sentindo desmotivados em relação à aprendizagem e ao desenvolvimento, ao mesmo tempo em que lhes disponibilizamos as ferramentas necessárias para esse fim.
                 </p>
             </div>
 

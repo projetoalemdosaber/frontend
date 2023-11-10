@@ -36,13 +36,17 @@ function Login() {
     } 
     return (
         <>
-            <div className="bg-gradient-to-t from-logoPink to-logoOrange flex lg:grid-cols-2 h-screen justify-center font-bold">
+            <div className="flex h-screen justify-center items-center font-bold relative">
+                <video 
+                    src="/img/pexels-c-technical-6334253 (720p).mp4" 
+                    className="absolute top-0 left-0 -z-10"
+                    autoPlay muted loop/>
                 <form 
-                    className="flex justify-center items-center flex-col w-1/4 gap-4"
+                    className="w-1/3 h-3/5 flex justify-center bg-logoPink/50 backdrop-blur-sm rounded items-center flex-col p-8"
                     onSubmit={login}
                 >
-                    <h2 className="text-bege text-5xl ">Entrar</h2>
-                    <div className="flex flex-col w-full">
+                    <h2 className="text-white text-5xl mt-4">Entrar</h2>
+                    <div className="flex flex-col w-full my-3">
                         <label htmlFor="usuario" className="text-xl text-bege">E-mail</label>
                         <input
                             type="text"
@@ -55,7 +59,7 @@ function Login() {
 
                         />
                     </div>
-                    <div className="flex flex-col w-full">
+                    <div className="flex flex-col w-full my-3">
                         <label htmlFor="senha" className="text-xl text-bege">Senha</label>
                         <input
                             type="password"
@@ -69,7 +73,7 @@ function Login() {
                     </div>
                     <button 
                         type='submit' 
-                        className="rounded bg-logoGreen flex justify-center hover:bg-logoGreen/90 text-white w-1/2 py-2 px-4">
+                        className="w-1/2 rounded text-white flex justify-center mt-2 py-2 px-4 bg-logoGreen hover:bg-logoGreen/90">
 
                        {isLoading ? <RotatingLines
                             strokeColor="white"
@@ -81,9 +85,9 @@ function Login() {
                         <span>Entrar</span>}
                     </button>
 
-                    <hr className="border-bege w-full" />
+                    <hr className="border-bege w-full my-4" />
 
-                    <p className="text-bege">
+                    <p className="text-bege font-semibold mb-2">
                         Ainda não tem uma conta?{' '}
                         <Link to="/cadastro" className="hover:text-logoGreen"> 
                             Cadastre-se

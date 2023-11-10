@@ -1,9 +1,17 @@
 import MainRoute from "./routes/routes"
+import { AuthProvider } from './contexts/AuthContext';
+
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/ReactToastify.min.css"
+
 
 function App() {
   return (
     <>
-      <MainRoute/>
+      <AuthProvider>
+        <ToastContainer />
+        <MainRoute/>
+      </AuthProvider>
     </>
   )
 }
