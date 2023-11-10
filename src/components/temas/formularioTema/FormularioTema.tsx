@@ -108,50 +108,50 @@ function FormularioTema() {
     }
 
     return (
-        <div className="h-screen w-full bg-bege flex flex-col items-center justify-center mx-auto">
-            
-            <h1 className="text-4xl text-center my-8">
-                
-                {id === undefined ? 'Cadastrar Tema' : 'Editar Tema'}
-            </h1>
+        <div className="h-screen w-full bg-estudante bg-cover bg-no-repeat">
+            <div className="w-full h-full bg-bege/70 flex flex-col items-center justify-center mx-auto">
+                <h1 className="text-4xl text-center my-8">
+                    {id === undefined ? 'Cadastrar Tema' : 'Editar Tema'}
+                </h1>
 
-            <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoTema}>
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="assunto">Assunto:</label>
-                    <input
-                        type="text"
-                        placeholder="Assunto do tema..."
-                        name='assunto'
-                        className="border-2 border-slate-700 rounded p-2"
-                        value={tema.assunto}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                    />
+                <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoTema}>
+                    <div className="flex flex-col gap-2 font-semibold">
+                        <label htmlFor="assunto">Assunto:</label>
+                        <input
+                            type="text"
+                            placeholder="Assunto do tema..."
+                            name='assunto'
+                            className="border-2 border-slate-700 rounded p-2"
+                            value={tema.assunto}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        />
 
-                    <label htmlFor="descricao">Descrição:</label>
-                    <input
-                        type="text"
-                        placeholder="Descreva aqui seu tema..."
-                        name='descricao'
-                        className="border-2 border-slate-700 rounded p-2"
-                        value={tema.descricao}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                    />
-                </div>
-                <button
-                    className="w-2/5 py-2 mx-auto flex justify-center text-xl font-semibold rounded text-slate-100 transition-all duration-300 bg-green-500 hover:bg-green-400 hover:w-[39%]" type="submit">
+                        <label htmlFor="descricao">Descrição:</label>
+                        <input
+                            type="text"
+                            placeholder="Descreva aqui seu tema..."
+                            name='descricao'
+                            className="border-2 border-slate-700 rounded p-2"
+                            value={tema.descricao}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        />
+                    </div>
+                    <button
+                        className="w-2/5 py-2 mx-auto flex justify-center text-xl font-semibold rounded text-slate-100 transition-all duration-300 bg-green-500 hover:bg-green-400 hover:w-[39%]" type="submit">
 
-                    {isLoading ?
-                        <RotatingLines
-                            strokeColor="white"
-                            strokeWidth="5"
-                            animationDuration="0.75"
-                            width="24"
-                            visible={true}
-                        /> :
-                        <span>Confirmar</span>
-                    }
-                </button>
-            </form>
+                        {isLoading ?
+                            <RotatingLines
+                                strokeColor="white"
+                                strokeWidth="5"
+                                animationDuration="0.75"
+                                width="24"
+                                visible={true}
+                            /> :
+                            <span>Confirmar</span>
+                        }
+                    </button>
+                </form>
+            </div>
         </div>
     )
 }

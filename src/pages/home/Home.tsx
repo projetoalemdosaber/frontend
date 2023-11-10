@@ -1,7 +1,7 @@
 function Home() {
     return (
         <>
-            <div className="bg-logoPink/50 relative flex justify-center items-center h-screen w-full">
+            <div className="bg-gradient-to-t from-logoRed/70 to-logoPink/50 relative flex justify-center items-center h-screen w-full">
                 <img src="/img/pexels-keira-burton-6147009.jpg" className="absolute top-0 left-0 -z-10" alt="" />
                 <div className='text-bege flex justify-evenly items-center'>
                     <div className="flex flex-col items-center justify-center py-4 w-2/5">

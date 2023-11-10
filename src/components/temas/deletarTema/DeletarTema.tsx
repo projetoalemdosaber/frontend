@@ -83,22 +83,22 @@ return (
         </p>
 
         <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-            <header className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>
+            <header className='py-2 px-6 bg-logoRed text-white font-bold text-2xl'>
                 {tema.assunto}
             </header>
 
-            <p className='p-8 text-3xl bg-slate-200 h-full'>{tema.descricao}</p>
+            <p className='p-8 text-xl bg-slate-200 h-full'>{tema.descricao}</p>
 
             <div className="flex">
 
                 <button
-                    className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2'
+                    className='text-slate-100 bg-red-600 hover:bg-red-500 w-full py-2'
                     onClick={retornar}>
                     Não
                 </button>
 
                 <button
-                    className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-600 
+                    className='w-full text-slate-100 bg-logoOrange hover:bg-logoOrange/80 
                         flex items-center justify-center'
                     onClick={deletarTema}>
 
