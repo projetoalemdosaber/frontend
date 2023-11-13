@@ -12,5 +12,5 @@ export default interface Postagem {
   indico: number;
   dataLancamento: string;
   tema: Tema | null;
-  usuario: Usuario | null;
+  user: Usuario | null;
 }

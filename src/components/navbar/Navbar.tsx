@@ -39,6 +39,7 @@ function Navbar() {
                                 logado ?
                                     <>
                                         <Link to='/temas' className='hover:font-bold'>Temas</Link>
+                                        <Link to='/postagens' className='hover:font-bold'>Postagens</Link>
                                         <Link to='/cadastroTema' className='hover:font-bold'>Cadastrar Tema</Link>
                                         <Link to='/' className='hover:font-bold' onClick={handleLogin}>Sair</Link>
                                     </>

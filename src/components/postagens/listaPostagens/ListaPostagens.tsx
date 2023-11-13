@@ -1,12 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Dna } from 'react-loader-spinner';
+import { ProgressBar } from 'react-loader-spinner';
 
 import { buscar } from '../../../services/Service';
 import { AuthContext } from '../../../contexts/AuthContext';
 
 import Postagem from '../../../models/Postagem';
-import CardPostagens from '../cardPostagens/CardPostagens';
+import CardPostagem from '../cardPostagem/CardPostagem';
 import { toastAlerta } from '../../../utils/toastAlerta';
 
 function ListaPostagens() {
@@ -20,7 +22,7 @@ function ListaPostagens() {
 
     async function buscarPostagens() {
         try {
-            await buscar('/postagens/all', setPostagens, {
+            await buscar('/postagens', setPostagens, {
                 headers: {
                     Authorization: token,
                 },
@@ -45,24 +47,27 @@ function ListaPostagens() {
         buscarPostagens()
     }, [postagens.length])
 
+    console.log(postagens);
+    
     return (
         <>
         {postagens.length === 0 && (
-            <Dna
+            <ProgressBar
                 visible={true}
                 height="200"
-                width="200"
-                ariaLabel="dna-loading"
+                width="700"
+                ariaLabel="progress-bar-loading"
                 wrapperStyle={{}}
-                wrapperClass="dna-wrapper mx-auto"
+                barColor="rgba(234, 159, 49)"
+                borderColor="transparent"
+                wrapperClass="progress-bar-wrapper mx-auto"
             />
         )}
 
-        <div className='container mx-auto my-4 
-        grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+        <div className='container mx-auto mt-24 flex flex-col justify-center items-center'>
 
             {postagens.map((postagem) => (
-                <CardPostagens key={postagem.id} post={postagem} />
+                <CardPostagem key={postagem.id} post={postagem} />
             ))}
 
         </div>
