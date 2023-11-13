@@ -12,18 +12,27 @@ function CardPostagem({post} : CardPostagemPostagem) {
   const { usuario } = useContext(AuthContext)
   
   return (
-      <div className='h-full w-4/5 my-4 border-slate-900 border flex flex-col rounded overflow-hidden justify-between'>
+      <div className='h-full w-2/3 my-4 border-slate-950/75 border flex flex-col rounded-2xl overflow-hidden justify-between'>
               
         <div className='w-full min-h-[80vh]'>
-            <div className="flex bg-indigo-400 py-2 px-4 items-center gap-4">
+            <div className="flex bg-logoOrange py-2 px-4 items-center gap-4">
                 <img src={post.user?.foto} className='h-12 rounded-full' alt={`Imagem do ${post.user?.nome}`} />
-                <h3 className='text-lg font-bold text-center uppercase'>{post.user?.nome}</h3>
+                <h3 className='text-lg text-bege font-bold text-center uppercase'>{post.user?.nome}</h3>
             </div>
             <div className='p-4 '>
-                <h4 className='text-lg font-semibold uppercase'>{post.titulo}</h4>
-                <p>{post.texto}</p>
-                <p>Tema: {post.tema?.descricao}</p>
-                <p>Data: { new Intl.DateTimeFormat(undefined, {
+                <h4 className='text-lg font-semibold'>{post.titulo}</h4>
+                <p className='my-2'>Tema: {post.tema?.assunto}</p>
+                <p className='mb-4'>{post.texto}</p>
+                
+                {
+                  post.foto ?
+                    <img src={post.foto} alt="foto da postagem" className='h-full w-full'/>
+                  : post.video && 
+                    <video src={post.video}></video> 
+                }
+
+                <p className='mt-3'>
+                  Data: { new Intl.DateTimeFormat(undefined, {
                       dateStyle: "medium",
                       timeStyle: "short",
                     }).format(new Date(post.dataLancamento))

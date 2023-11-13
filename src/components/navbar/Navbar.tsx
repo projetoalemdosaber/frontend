@@ -24,7 +24,7 @@ function Navbar() {
 
     return (
         <>
-            <header className='w-full bg-logoRed backdrop-blur-sm text-white flex justify-center py-4 fixed z-50 top-0'>
+            <header className='w-full bg-bege backdrop-blur-sm/90 text-slate-900 flex justify-center py-4 fixed z-50 top-0 shadow-md shadow-black/30'>
 
                 <div className="container flex justify-between text-md">
                     <div className="container flex justify-between items-center">
@@ -34,19 +34,19 @@ function Navbar() {
                         </div>
 
                         <nav className='flex gap-8 font-semibold'>
-                            <Link to='/home' className='hover:font-bold'>Inicio</Link>                            
+                            <Link to='/home' className='hover:font-bold hover:text-logoRed'>Inicio</Link>                            
                             {
                                 logado ?
                                     <>
-                                        <Link to='/temas' className='hover:font-bold'>Temas</Link>
-                                        <Link to='/postagens' className='hover:font-bold'>Postagens</Link>
-                                        <Link to='/cadastroTema' className='hover:font-bold'>Cadastrar Tema</Link>
-                                        <Link to='/' className='hover:font-bold' onClick={handleLogin}>Sair</Link>
+                                        <Link to='/temas' className='hover:font-bold hover:text-logoRed'>Temas</Link>
+                                        <Link to='/postagens' className='hover:font-bold hover:text-logoRed'>Postagens</Link>
+                                        <Link to='/cadastroTema' className='hover:font-bold hover:text-logoRed'>Cadastrar Tema</Link>
+                                        <Link to='/' className='hover:font-bold hover:text-logoRed' onClick={handleLogin}>Sair</Link>
                                     </>
                                 :
                                 <>
-                                    <Link to='/cadastro' className='hover:font-bold'>Cadastre-se</Link>
-                                    <Link to='/login' className='hover:font-bold'>Login</Link>
+                                    <Link to='/cadastro' className='hover:font-bold hover:text-logoRed'>Cadastre-se</Link>
+                                    <Link to='/login' className='hover:font-bold hover:text-logoRed'>Login</Link>
                                 </>
                             }
                             

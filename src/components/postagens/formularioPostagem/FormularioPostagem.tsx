@@ -120,7 +120,7 @@ function FormularioPostagem() {
     back()
   }
   
-  const carregandoTema = tema.descricao === '';
+  const carregandoTema = tema.assunto === '';
     
   const handleTemaSelected = (id : string) => {
     temas.map((item) => item.id === parseInt(id) ? setTema(item) : null)
@@ -159,6 +159,25 @@ function FormularioPostagem() {
                   className="border-2 border-slate-700 rounded p-2"
               />
           </div>
+
+          <div className="flex flex-col gap-2">
+              <label htmlFor="titulo">Escolha o tipo de mídia:</label>
+
+              <input type='radio'/>
+              <input type='radio'/>
+
+              
+              <input
+                  value={postagem.texto}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                  type="text"
+                  placeholder="Adicione aqui o Texto da Postagem"
+                  name="texto"
+                  required
+                  className="border-2 border-slate-700 rounded p-2"
+              />
+          </div>
+
 
           <div className="flex flex-col gap-2">
               <p>Tema da Postagem</p>
