@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Postagem from '../../../models/Postagem'
 import { AuthContext } from '../../../contexts/AuthContext'
 import { useContext } from 'react'
+import ModalPostagem from '../modalPostagem/ModalPostagem'
 
 interface CardPostagemPostagem {
   post: Postagem
@@ -44,9 +45,10 @@ function CardPostagem({post} : CardPostagemPostagem) {
         {
           post.user?.id === usuario.id &&
             <div className="flex">
-                <Link to={`/editarPostagem/${post.id}`} className='w-full text-white bg-indigo-400 hover:bg-indigo-800 flex items-center justify-center py-2'>
+                {/* <Link to={`/editarPostagem/${post.id}`} className='w-full text-white bg-indigo-400 hover:bg-indigo-800 flex items-center justify-center py-2'>
                     <button>Editar</button>
-                </Link>
+                </Link> */}
+                <ModalPostagem id={post.id.toString()}/>
                 <Link to={`/deletarPostagem/${post.id}`} className='text-white bg-red-400 hover:bg-red-700 w-full flex items-center justify-center'>
                     <button>Deletar</button>
                 </Link>

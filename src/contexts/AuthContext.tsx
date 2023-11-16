@@ -7,8 +7,10 @@ import { toastAlerta } from "../utils/toastAlerta"
 interface AuthContextProps {
     usuario: UsuarioLogin
     handleLogout(): void
+    handleReloading(): void
     handleLogin(usuario: UsuarioLogin): Promise<void>
     isLoading: boolean
+    reloading: boolean
 }
 
 interface AuthProviderProps {
@@ -30,6 +32,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
     })
 
     const [isLoading, setIsLoading] = useState(false)
+
+    const [reloading, setReloading] = useState(false)
+
+    function handleReloading() {
+        setReloading((prev) => !prev)
+    }
 
     async function handleLogin(userLogin: UsuarioLogin) {
         setIsLoading(true)
@@ -57,7 +65,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     return (
-        <AuthContext.Provider value={{ usuario, handleLogin, handleLogout, isLoading }}>
+        <AuthContext.Provider value={{ usuario, handleLogin, handleLogout, isLoading, reloading, handleReloading }}>
             {children}
         </AuthContext.Provider>
     )

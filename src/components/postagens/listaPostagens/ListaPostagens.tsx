@@ -17,7 +17,7 @@ function ListaPostagens() {
 
     const [postagens, setPostagens] = useState<Postagem[]>([]);
 
-    const { usuario, handleLogout } = useContext(AuthContext);
+    const { usuario, handleLogout, reloading } = useContext(AuthContext);
     const token = usuario.token;
 
     async function buscarPostagens() {
@@ -45,9 +45,7 @@ function ListaPostagens() {
 
     useEffect(() => {
         buscarPostagens()
-    }, [postagens.length])
-
-    console.log(postagens);
+    }, [postagens.length, reloading])
     
     return (
         <>
