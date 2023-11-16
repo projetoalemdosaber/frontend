@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom'
-import Postagem from '../../../models/Postagem'
+import { useContext, useState } from 'react'
+
 import { AuthContext } from '../../../contexts/AuthContext'
-import { useContext } from 'react'
+import Postagem from '../../../models/Postagem'
 import ModalPostagem from '../modalPostagem/ModalPostagem'
+
+import { SlOptions } from "react-icons/sl";
+import { IoMdShareAlt } from "react-icons/io";
+import { MdDelete, MdCreate } from "react-icons/md";
 
 interface CardPostagemPostagem {
   post: Postagem
@@ -11,16 +16,53 @@ interface CardPostagemPostagem {
 function CardPostagem({post} : CardPostagemPostagem) {
   
   const { usuario } = useContext(AuthContext)
+
+  const [openSelect, setOpenSelect] = useState(false)
+
+  const handleOpenSelect = () => {
+      setOpenSelect((prev) => !prev)
+  }
   
   return (
       <div className='h-full w-2/3 my-4 border-slate-950/75 border flex flex-col rounded-2xl overflow-hidden justify-between'>
               
         <div className='w-full min-h-[80vh]'>
-            <div className="flex bg-logoOrange py-2 px-4 items-center gap-4">
+            <div className="relative flex justify-between items-center bg-logoOrange py-2 px-4 text-bege">
+              <div className='flex items-center gap-4'>
                 <img src={post.user?.foto} className='h-12 rounded-full' alt={`Imagem do ${post.user?.nome}`} />
-                <h3 className='text-lg text-bege font-bold text-center uppercase'>{post.user?.nome}</h3>
+                <h3 className='text-lg font-bold text-center uppercase'>{post.user?.nome}</h3>
+              </div>
+
+              {
+                post.user?.id === usuario.id &&
+                <div>
+                  <SlOptions size="2rem" onClick={handleOpenSelect} />
+    
+                  {openSelect && 
+                    <div className='absolute top-10 right-8 border-2 border-begeCinzento bg-bege w-1/4 flex flex-col justify-center items-center p-2 font-semibold text-slate-900'>
+                      <div onClick={handleOpenSelect} className='w-full text-base flex items-center gap-1 hover:text-blue-700'>
+                        <MdCreate />
+                        <ModalPostagem id={post.id.toString()}/>
+                      </div>
+                      <Link 
+                          to={`/deletarPostagem/${post.id}`} 
+                          onClick={handleOpenSelect}
+                          className='w-full text-base flex items-center gap-1 hover:text-red-700'>
+                          <MdDelete />
+                          Deletar
+                      </Link>
+                      <h2 className='w-full text-base flex items-center gap-1 hover:text-green-700 cursor-pointer'>
+                          <IoMdShareAlt />
+                          Compartilhar
+                      </h2>
+                    </div>
+                  }
+                </div>
+
+              }
             </div>
-            <div className='p-4 '>
+
+            <div className='p-4'>
                 <h4 className='text-lg font-semibold'>{post.titulo}</h4>
                 <p className='my-2'>Tema: {post.tema?.assunto}</p>
                 <p className='mb-4'>{post.texto}</p>
@@ -41,20 +83,6 @@ function CardPostagem({post} : CardPostagemPostagem) {
                 </p>
             </div>
         </div>
-
-        {
-          post.user?.id === usuario.id &&
-            <div className="flex">
-                {/* <Link to={`/editarPostagem/${post.id}`} className='w-full text-white bg-indigo-400 hover:bg-indigo-800 flex items-center justify-center py-2'>
-                    <button>Editar</button>
-                </Link> */}
-                <ModalPostagem id={post.id.toString()}/>
-                <Link to={`/deletarPostagem/${post.id}`} className='text-white bg-red-400 hover:bg-red-700 w-full flex items-center justify-center'>
-                    <button>Deletar</button>
-                </Link>
-            </div>
-        }
-
       </div>
   )
 }

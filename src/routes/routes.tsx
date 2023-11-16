@@ -27,7 +27,7 @@ function MainRoute() {
           <Route path="/editarTema/:id" element={<FormularioTema />} />
           <Route path="/deletarTema/:id" element={<DeletarTema />} />
           
-          <Route path="/postagens" element={<FeedPostagens />} />
+          <Route path="/feed" element={<FeedPostagens />} />
           {/* A rota "cadastroPostagens" não está sendo utilizado */}
           <Route path="/cadastroPostagens" element={<FormularioPostagem />} />
           <Route path="/editarPostagem/:id" element={<FormularioPostagem />} />

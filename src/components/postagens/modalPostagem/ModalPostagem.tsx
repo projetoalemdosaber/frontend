@@ -8,8 +8,7 @@ function ModalPostagem(props: {id? : string}) {
         <>
             <Popup
                 trigger={
-                    <button 
-                        className='border rounded px-2 py-2 hover:bg-white hover:text-indigo-800'>
+                    <button>
                         {props.id ? "Editar" : "Nova Postagem"}
                     </button>
                 }

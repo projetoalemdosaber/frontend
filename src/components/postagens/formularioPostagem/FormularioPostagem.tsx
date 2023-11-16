@@ -78,7 +78,7 @@ function FormularioPostagem(props: {id?: string}) {
   }
 
   function back() {
-    navigate('/postagens');
+    navigate('/feed');
   }
 
   async function gerarNovaPostagem(e: ChangeEvent<HTMLFormElement>) {

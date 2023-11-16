@@ -18,7 +18,7 @@ function Login() {
 
     useEffect(() => {
         if (usuario.token !== "") {
-            navigate('/home')
+            navigate('/feed')
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [usuario])
@@ -34,15 +34,16 @@ function Login() {
         e.preventDefault()
         handleLogin(usuarioLogin)
     } 
+
     return (
         <>
             <div className="flex h-screen justify-center items-center font-bold relative">
                 <video 
-                    src="/img/pexels-c-technical-6334253 (720p).mp4" 
+                    src="/img/pexels-c-technical-6334253.mp4" 
                     className="absolute top-0 left-0 -z-10"
                     autoPlay muted loop/>
                 <form 
-                    className="w-1/3 h-3/5 flex justify-center bg-logoPink/50 backdrop-blur-sm rounded items-center flex-col p-8"
+                    className="w-1/3 h-3/5 flex justify-center bg-marrom/50 backdrop-blur-sm rounded items-center flex-col p-8"
                     onSubmit={login}
                 >
                     <h2 className="text-white text-5xl mt-4">Entrar</h2>
@@ -73,7 +74,7 @@ function Login() {
                     </div>
                     <button 
                         type='submit' 
-                        className="w-1/2 rounded text-white flex justify-center mt-2 py-2 px-4 bg-logoGreen hover:bg-logoGreen/90">
+                        className="w-1/2 rounded text-white flex justify-center mt-2 py-2 px-4 bg-laranjaMarrom hover:bg-laranjaMarrom/90">
 
                        {isLoading ? <RotatingLines
                             strokeColor="white"
@@ -88,9 +89,8 @@ function Login() {
                     <hr className="border-bege w-full my-4" />
 
                     <p className="text-bege font-semibold mb-2">
-                        Ainda não tem uma conta?{' '}
-                        <Link to="/cadastro" className="hover:text-logoGreen"> 
-                            Cadastre-se
+                        <Link to="/cadastro" className="hover:text-logoOrange"> 
+                            Ainda não tem uma conta? Cadastre-se
                         </Link>
                     </p>
                 </form>

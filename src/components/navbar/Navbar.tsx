@@ -24,35 +24,35 @@ function Navbar() {
 
     return (
         <>
-            <header className='w-full bg-bege backdrop-blur-sm/90 text-slate-900 flex justify-center py-4 fixed z-50 top-0 shadow-md shadow-black/30'>
+            <header className='w-full bg-begeClaro backdrop-blur-sm/90 text-slate-900 flex fixed z-50 top-0 shadow-md shadow-black/30'>
 
-                <div className="container flex justify-between text-md">
-                    <div className="container flex justify-between items-center">
-                        <div className="flex items-center gap-4">
-                            <img src="/img/146135330.png" alt="Logo" className="max-w-[10%]" />
-                            <Link to='/home' className='text-1xl font-bold'>Além do Saber</Link>
-                        </div>
-
-                        <nav className='flex gap-8 font-semibold'>
-                            <Link to='/home' className='hover:font-bold hover:text-logoRed'>Inicio</Link>                            
-                            {
-                                logado ?
-                                    <>
-                                        <Link to='/temas' className='hover:font-bold hover:text-logoRed'>Temas</Link>
-                                        <Link to='/postagens' className='hover:font-bold hover:text-logoRed'>Postagens</Link>
-                                        <Link to='/cadastroTema' className='hover:font-bold hover:text-logoRed'>Cadastrar Tema</Link>
-                                        <Link to='/' className='hover:font-bold hover:text-logoRed' onClick={handleLogin}>Sair</Link>
-                                    </>
-                                :
-                                <>
-                                    <Link to='/cadastro' className='hover:font-bold hover:text-logoRed'>Cadastre-se</Link>
-                                    <Link to='/login' className='hover:font-bold hover:text-logoRed'>Login</Link>
-                                </>
-                            }
-                            
-                        </nav>
+                <div className="w-[97%] relative py-4 flex justify-end">
+                    <div className="absolute left-3 top-1">
+                        <Link to='/home' className='text-1xl font-bold'>
+                            <img src="/img/146135330.png" alt="Logo" className="max-w-[16%]" />
+                        </Link>
                     </div>
+
+                    <nav className='flex gap-8 font-semibold'>
+                        <Link to='/home' className='hover:font-bold hover:text-laranja'>Inicio</Link>                            
+                        {
+                            logado ?
+                                <>
+                                    <Link to='/temas' className='hover:font-bold hover:text-laranja'>Temas</Link>
+                                    <Link to='/feed' className='hover:font-bold hover:text-laranja'>Feed</Link>
+                                    <Link to='/cadastroTema' className='hover:font-bold hover:text-laranja'>Cadastrar Tema</Link>
+                                    <Link to='/' className='hover:font-bold hover:text-laranja' onClick={handleLogin}>Sair</Link>
+                                </>
+                            :
+                            <>
+                                <Link to='/cadastro' className='hover:font-bold hover:text-laranja'>Cadastre-se</Link>
+                                <Link to='/login' className='hover:font-bold hover:text-laranja'>Login</Link>
+                            </>
+                        }
+                        
+                    </nav>
                 </div>
+
             </header>
         </>
     )

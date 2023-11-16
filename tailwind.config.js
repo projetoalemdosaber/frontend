@@ -11,9 +11,12 @@ export default {
       },
       colors: {
         logoOrange : "rgba(234, 159, 49)",
-        logoPink: "rgba(253, 176, 143)",
-        logoGreen: "rgba(114, 121, 46)",
-        logoRed: "rgba(229, 84, 60)",
+        marrom: "#682C0E",
+        laranjaMarrom: "#C24914",
+        laranja: "#FC8621",
+        begeCinzento: "#DAC0A3",
+        begeClaro: "#EADBC8",
+        begeLaranja: "#F9E0AE",
         bege: "rgb(255, 244, 230)"
       }
     },

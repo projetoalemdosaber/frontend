@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ProgressBar } from 'react-loader-spinner';
+import { MagnifyingGlass } from 'react-loader-spinner';
 
 import { buscar } from '../../../services/Service';
 import { AuthContext } from '../../../contexts/AuthContext';
@@ -49,20 +49,20 @@ function ListaPostagens() {
     
     return (
         <>
-        {postagens.length === 0 && (
-            <ProgressBar
-                visible={true}
-                height="200"
-                width="700"
-                ariaLabel="progress-bar-loading"
-                wrapperStyle={{}}
-                barColor="rgba(234, 159, 49)"
-                borderColor="transparent"
-                wrapperClass="progress-bar-wrapper mx-auto"
-            />
-        )}
 
         <div className='container mx-auto mt-24 flex flex-col justify-center items-center'>
+            {postagens.length === 0 && (
+                <MagnifyingGlass
+                    visible={true}
+                    height="200"
+                    width="200"
+                    ariaLabel="MagnifyingGlass-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="MagnifyingGlass-wrapper"
+                    glassColor = '#c0efff'
+                    color = '#C24914'
+                />
+            )}
 
             {postagens.map((postagem) => (
                 <CardPostagem key={postagem.id} post={postagem} />

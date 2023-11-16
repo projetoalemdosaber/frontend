@@ -71,7 +71,7 @@ function DeletarPostagem() {
     }
 
     function retornar() {
-        navigate("/postagens")
+        navigate("/feed")
     }
 
     return (
