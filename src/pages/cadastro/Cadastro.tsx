@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import Usuario from "../../models/Usuario";
-import { cadastrarUsuario } from "../../services/Service";
+import { buscar, cadastrarUsuario } from "../../services/Service";
 import { RotatingLines } from "react-loader-spinner";
 import { toastAlerta } from "../../utils/toastAlerta";
 
@@ -11,6 +11,8 @@ function Cadastro() {
 
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [confirmarSenha, setConfirmarSenha] = useState<string>("")
+
+  const [emailIsValidate, setEmailIsValidate] = useState("")
 
   const [usuario, setUsuario] = useState<Usuario>({
     id: 0,
@@ -27,6 +29,11 @@ function Cadastro() {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [usuario])
+
+  async function buscarEmail(email : string) {
+    await buscar(`/usuarios/email/${email}`, setEmailIsValidate, {headers: {}})
+    console.log(emailIsValidate);
+  }
 
   function back() {
       navigate('/login')
@@ -45,17 +52,23 @@ function Cadastro() {
 
   async function cadastrarNovoUsuario(e: FormEvent<HTMLFormElement>) {
       e.preventDefault()
-
+      
       if (confirmarSenha === usuario.senha && usuario.senha.length >= 8) {
         setIsLoading(true)
+        buscarEmail(usuario.usuario)
 
-        try {
-            await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario)
-            toastAlerta('Usuário cadastrado com sucesso', 'sucesso')
-
-        } catch (error) {
-            toastAlerta('Erro ao cadastrar o Usuário', 'erro')
+        if (emailIsValidate === '') {
+          try {
+              await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario)
+              toastAlerta('Usuário cadastrado com sucesso', 'sucesso')
+  
+          } catch (error) {
+              toastAlerta('Erro ao cadastrar o Usuário', 'erro')
+          }
+        } else {
+          toastAlerta('Email já utilizado! Tente com outro e-mail', 'erro')
         }
+        
       } else {
           toastAlerta('Senha e Confimar senha precisam ser iguais. Sua senha precisa ter 8 caracteres ou mais.', 'info')
           setUsuario({ ...usuario, senha: "" })

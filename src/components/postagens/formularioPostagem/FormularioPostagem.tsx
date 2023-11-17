@@ -11,7 +11,7 @@ import Tema from '../../../models/Tema';
 import Postagem from '../../../models/Postagem';
 import { toastAlerta } from '../../../utils/toastAlerta';
 
-function FormularioPostagem(props: {id?: string}) {
+function FormularioPostagem(props: {id?: string, close? : () => void}) {
 
   const navigate = useNavigate();
 
@@ -131,7 +131,7 @@ function FormularioPostagem(props: {id?: string}) {
   }
 
   return (
-    <div className="container flex flex-col mx-auto items-center">
+    <div className="container flex flex-col items-center">
       <h1 className="text-4xl text-center my-4">
         {id !== undefined ? 'Editar Postagem' : 'Cadastrar Postagem'}
       </h1>
@@ -151,7 +151,7 @@ function FormularioPostagem(props: {id?: string}) {
           </div>
 
           <div className="flex flex-col gap-2">
-              <label htmlFor="titulo">Texto da Postagem</label>
+              <label htmlFor="texto">Texto da Postagem</label>
 
               <input
                   value={postagem.texto}
@@ -183,30 +183,31 @@ function FormularioPostagem(props: {id?: string}) {
           }
 
           <div className='flex flex-col gap-2'>
-            {id &&
-              <label htmlFor="url">Mídia:</label>
-            }
             {
               opcaoMidia ?
+              <>
+                <label htmlFor="video">Video:</label>
                 <input
                   value={postagem.video}
                   onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                   type="url"
                   placeholder="Adicione a url do video..."
-                  name="url"
-                  required
+                  name="video"
                   className="border-2 border-slate-700 rounded p-2"
                 />
+              </>
               : 
-                <input
-                  value={postagem.foto}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                  type="url"
-                  placeholder="Adicione a url da imagem..."
-                  name="url"
-                  required
-                  className="border-2 border-slate-700 rounded p-2"
-                />
+                <>
+                  <label htmlFor="foto">Foto:</label>
+                  <input
+                    value={postagem.foto}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                    type="url"
+                    placeholder="Adicione a url da imagem..."
+                    name="foto"
+                    className="border-2 border-slate-700 rounded p-2"
+                  />
+                </>
             }
 
           </div>
@@ -227,7 +228,7 @@ function FormularioPostagem(props: {id?: string}) {
           <button
             type='submit'
             disabled={carregandoTema}
-            className='flex justify-center rounded disabled:bg-slate-200 bg-indigo-400 hover:bg-indigo-800 text-white 
+            className='flex justify-center rounded disabled:bg-slate-200 bg-laranjaMarrom hover:bg-laranjaMarrom/80 text-white 
             font-bold w-1/2 mx-auto my-4 py-2'
           >
             {isLoading ?

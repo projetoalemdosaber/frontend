@@ -22,7 +22,7 @@ function CardTemas({tema} : CardTemasProps) {
                 {tema.assunto} 
                 <SlOptions onClick={handleOpenSelect} className="cursor-pointer" />
                 {openSelect &&
-                    <div className='absolute top-2 right-4 border-2 border-begeCinzento bg-bege w-2/5 h-1/5 flex flex-col justify-center items-center p-2 font-semibold text-slate-900'>
+                    <div className='absolute top-7 right-4 border-2 border-begeCinzento bg-bege w-2/5 max-h-[60%] flex flex-col justify-center px-3 font-semibold text-slate-900'>
                         <Link 
                             to={`/editarTema/${tema.id}`} 
                             onClick={handleOpenSelect}

@@ -24,7 +24,7 @@ function CardPostagem({post} : CardPostagemPostagem) {
   }
   
   return (
-      <div className='h-full w-2/3 my-4 border-slate-950/75 border flex flex-col rounded-2xl overflow-hidden justify-between'>
+      <div className='h-full w-4/5 lg:w-1/2 my-4 border-slate-950/75 border flex flex-col rounded-2xl overflow-hidden justify-between'>
               
         <div className='w-full min-h-[80vh]'>
             <div className="relative flex justify-between items-center bg-logoOrange py-2 px-4 text-bege">
@@ -62,21 +62,23 @@ function CardPostagem({post} : CardPostagemPostagem) {
               }
             </div>
 
-            <div className='p-4'>
+            <div className='p-4 w-full h-1/2'>
                 <h4 className='text-lg font-semibold'>{post.titulo}</h4>
                 <p className='my-2'>Tema: {post.tema?.assunto}</p>
                 <p className='mb-4'>{post.texto}</p>
                 
                 {
                   post.foto ?
-                    <img src={post.foto} alt="foto da postagem" className='h-full w-full'/>
+                    <div className='flex justify-center max-h-full max-w-full object-cover overflow-x-auto bg-begeClaro'>
+                      <img src={post.foto} alt="foto da postagem" className='object-fill h-96 max-w-full'/>
+                    </div>
                   : post.video && 
                     <video src={post.video}></video> 
                 }
 
                 <p className='mt-3'>
                   Data: { new Intl.DateTimeFormat(undefined, {
-                      dateStyle: "medium",
+                      dateStyle: "short",
                       timeStyle: "short",
                     }).format(new Date(post.dataLancamento))
                   }
