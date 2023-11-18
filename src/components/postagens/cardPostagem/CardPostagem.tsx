@@ -25,28 +25,31 @@ function CardPostagem({post} : CardPostagemPostagem) {
   }
 
   const [comentarios, setComentarios] = useState([
-    'Post muito bacana, hein?! 👏👏'
+    [
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqIDyQXGYdxLNF1x4tsl0Zrz88OTEdlsRKCA&usqp=CAU',
+      'Post muito bacana, hein?! 👏👏'
+    ] 
 ])
 
-const [novoComentarioTexto, setNovoComentarioTexto] = useState('')
+const [novoComentarioTexto, setNovoComentarioTexto] = useState([])
 
  // Função que vai pegar os novos comentários digitados e adiciona ao State
  function criarNovoComentario(event: FormEvent) {
   event.preventDefault()
   setComentarios([...comentarios, novoComentarioTexto])
-  setNovoComentarioTexto('')
+  setNovoComentarioTexto([])
 }
 
 // Função que pega o texto do novo comentário
 function atualizarNovoComentario(event: ChangeEvent<HTMLTextAreaElement>) {
-  setNovoComentarioTexto(event.target.value)
+  setNovoComentarioTexto([usuario.foto, event.target.value])
 }
 
   return (
       <div className='h-full w-4/5 lg:w-1/2 my-4 border-slate-950/75 border flex flex-col rounded-2xl overflow-hidden justify-between'>
               
         <div className='w-full min-h-[80vh]'>
-            <div className="relative flex justify-between items-center bg-logoOrange py-2 px-4 text-bege">
+            <div className="relative flex justify-between items-center bg-logoOrange py-2 px-4 text-white">
               <div className='flex items-center gap-4'>
                 <img src={post.user?.foto} className='h-12 rounded-full' alt={`Imagem do ${post.user?.nome}`} />
                 <h3 className='text-lg font-bold text-center uppercase'>{post.user?.nome}</h3>
@@ -58,7 +61,7 @@ function atualizarNovoComentario(event: ChangeEvent<HTMLTextAreaElement>) {
                   <SlOptions size="2rem" onClick={handleOpenSelect} />
     
                   {openSelect && 
-                    <div className='absolute top-10 right-8 border-2 border-begeCinzento bg-bege w-1/4 flex flex-col justify-center items-center p-2 font-semibold text-slate-900'>
+                    <div className='absolute top-10 right-8 border-2 border-begeCinzento bg-bege rounded-md w-1/4 flex flex-col justify-center items-center p-2 font-semibold text-slate-900'>
                       <div onClick={handleOpenSelect} className='w-full text-base flex items-center gap-1 hover:text-blue-700'>
                         <MdCreate />
                         <ModalPostagem id={post.id.toString()}/>
@@ -82,9 +85,9 @@ function atualizarNovoComentario(event: ChangeEvent<HTMLTextAreaElement>) {
             </div>
 
             <div className='p-4 w-full h-1/2'>
-                <h4 className='text-lg font-semibold'>{post.titulo}</h4>
-                <p className='my-2'>Tema: {post.tema?.assunto}</p>
-                <p className='mb-4'>{post.texto}</p>
+                <h4 className='max-md:text-lg max-sm:text-base text-xl font-semibold'>{post.titulo}</h4>
+                <p className='mt-4 max-sm:text-sm'>{post.texto}</p>
+                <p className='my-4 max-sm:text-sm'>Tema: {post.tema?.assunto}</p>
                 
                 {
                   post.foto ?
@@ -102,7 +105,7 @@ function atualizarNovoComentario(event: ChangeEvent<HTMLTextAreaElement>) {
                 }
 
                 <p className='mt-3'>
-                  Data: { new Intl.DateTimeFormat(undefined, {
+                  { new Intl.DateTimeFormat(undefined, {
                       dateStyle: "short",
                       timeStyle: "short",
                     }).format(new Date(post.dataLancamento))
@@ -115,29 +118,41 @@ function atualizarNovoComentario(event: ChangeEvent<HTMLTextAreaElement>) {
                   {/* Parte para inserir o Comentário */}
                   <form onSubmit={criarNovoComentario} className='flex flex-col p-4'>
                       {/*<strong>Deixe seu comentário</strong>*/}
-                      
-                      <textarea
-                      className='mt-4'
-                          name='comment'
-                          placeholder='Deixe seu comentário'
-                          value={novoComentarioTexto}
-                          onChange={atualizarNovoComentario}
-                          required
-                      />
+                      <div className='flex gap-2'>
+                        <img src={usuario.foto} className='h-12 rounded-full' alt={`Imagem do ${usuario.nome}`} />
+                        <textarea
+                            className='w-4/5 mt-4 p-3 bg-begeClaro rounded-3xl resize-none focus:outline-laranjaMarrom placeholder:text-slate-500'
+                            name='comment'
+                            placeholder='Escreva seu comentário...'
+                            value={novoComentarioTexto[1]}
+                            onChange={atualizarNovoComentario}
+                            required
+                        />
+                      </div>
                       <footer>
-                          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2 py-2 px-4 rounded-full"
-                              type="submit">Publicar</button>
+                        {
+                          novoComentarioTexto[1]?.length > 3 &&
+                          <button 
+                            className="bg-laranjaMarrom hover:bg-laranjaMarrom/90 text-white font-bold mt-2 ml-14 py-2 px-4 rounded-full"
+                            type="submit">
+                              Publicar
+                          </button>
+
+                        }
                       </footer>
                   </form>
               </div>
 
-            <div className='m-4'>
+            <div className='w-full p-4 border-t-2 border-marrom'>
 
                 <h2 className='mb-4 font-bold'>Comentários</h2>
 
                 {comentarios.map(comentario => {
                     return (
-                         <p className="mt-4">{comentario}</p>
+                      <div className='flex gap-2 items-center'>
+                        <img src={comentario[0]} className='h-12 rounded-full' alt='Imagem de perfil' />
+                        <p className="w-4/5 p-2 bg-begeClaro rounded-3xl">{comentario[1]}</p>
+                      </div>
                     )
                 })}
             </div>
