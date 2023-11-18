@@ -8,6 +8,7 @@ import ModalPostagem from '../modalPostagem/ModalPostagem'
 import { SlOptions } from "react-icons/sl";
 import { IoMdShareAlt } from "react-icons/io";
 import { MdDelete, MdCreate } from "react-icons/md";
+import ReactPlayer from 'react-player'
 
 interface CardPostagemPostagem {
   post: Postagem
@@ -91,7 +92,13 @@ function atualizarNovoComentario(event: ChangeEvent<HTMLTextAreaElement>) {
                       <img src={post.foto} alt="foto da postagem" className='object-fill h-96 max-w-full'/>
                     </div>
                   : post.video && 
-                    <video src={post.video}></video> 
+                    <div className='relative pt-[60.25%] pr-[50.25%] max-sm:pt-[40.25%] max-sm:pr-[80.25%] w-full flex items-center justify-center'>
+                      <ReactPlayer 
+                        className="absolute top-0 left-0 mx-2" 
+                        width='100%' 
+                        height="100%" 
+                        url={post.video} />
+                    </div>
                 }
 
                 <p className='mt-3'>

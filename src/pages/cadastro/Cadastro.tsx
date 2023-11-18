@@ -12,7 +12,7 @@ function Cadastro() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [confirmarSenha, setConfirmarSenha] = useState<string>("")
 
-  const [emailIsValidate, setEmailIsValidate] = useState("")
+  const [emailIsAvailable, setEmailIsAvailable] = useState("")
 
   const [usuario, setUsuario] = useState<Usuario>({
     id: 0,
@@ -31,8 +31,9 @@ function Cadastro() {
   }, [usuario])
 
   async function buscarEmail(email : string) {
-    await buscar(`/usuarios/email/${email}`, setEmailIsValidate, {headers: {}})
-    console.log(emailIsValidate);
+    setEmailIsAvailable("loading")
+    await buscar(`/usuarios/email/${email}`, setEmailIsAvailable, {headers: {}})
+    .catch(() => console.log('emai não encontrado!'))
   }
 
   function back() {
@@ -48,6 +49,10 @@ function Cadastro() {
           ...usuario,
           [e.target.name]: e.target.value
       })
+
+      if (e.target.name === 'usuario' && e.target.value.indexOf('@') > 0 && e.target.value.indexOf('.') > 0) {
+        buscarEmail(e.target.value)
+      }
   }
 
   async function cadastrarNovoUsuario(e: FormEvent<HTMLFormElement>) {
@@ -55,13 +60,14 @@ function Cadastro() {
       
       if (confirmarSenha === usuario.senha && usuario.senha.length >= 8) {
         setIsLoading(true)
-        buscarEmail(usuario.usuario)
 
-        if (emailIsValidate === '') {
+        if (emailIsAvailable === 'loading') {
+          toastAlerta('Estamos verificando se seu e-mail é válido, aguarde', 'info')
+        } else if (emailIsAvailable === '') {
           try {
-              await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario)
-              toastAlerta('Usuário cadastrado com sucesso', 'sucesso')
-  
+            await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario)
+            toastAlerta('Usuário cadastrado com sucesso', 'sucesso')
+
           } catch (error) {
               toastAlerta('Erro ao cadastrar o Usuário', 'erro')
           }
@@ -83,12 +89,12 @@ function Cadastro() {
       <div className="w-full min-h-screen bg-transparent flex justify-center items-center font-bold">
         <video 
           src="/img/pexels-c-technical-6334257.mp4" 
-          className="absolute top-0 left-0 -z-10"
+          className="-z-10 absolute w-full h-full object-cover"
           autoPlay muted loop
         />
         <form 
           onSubmit={cadastrarNovoUsuario} 
-          className='w-1/2 mt-[4.5rem] mb-4 flex flex-col justify-center items-center rounded-3xl px-6 py-4 bg-begeCinzento/70 gap-2'
+          className='w-11/12 sm:w-4/5 lg:w-1/2 mt-[4.5rem] mb-4 flex flex-col justify-center items-center rounded-3xl px-6 py-4 bg-begeCinzento/70 gap-2'
         >
           <h2 className='text-5xl text-bege'>Cadastrar</h2>
           <div className="flex flex-col w-full">
@@ -142,28 +148,28 @@ function Cadastro() {
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
-          <div className="w-full flex justify-between gap-8">
-            <div className="flex flex-col w-1/2">
+          <div className="w-full flex justify-between items-center">
+            <div className="flex flex-col w-[45%]">
               <label htmlFor="senha" className="text-white text-lg font-bold">Senha</label>
               <input
                 type="password"
                 id="senha"
                 name="senha"
                 placeholder="Senha"
-                className="rounded p-2 focus-within:outline-none"
+                className="rounded py-3 px-2 sm:p-2 focus-within:outline-none text-sm sm:text-lg"
                 value={usuario.senha}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                 required
               />
             </div>
-            <div className="flex flex-col w-1/2">
-              <label htmlFor="confirmarSenha" className="text-white text-lg font-bold">Confirmar Senha</label>
+            <div className="flex flex-col w-[45%]">
+              <label htmlFor="confirmarSenha" className="text-white text-base sm:text-lg font-bold">Confirmar Senha</label>
               <input
                 type="password"
                 id="confirmarSenha"
                 name="confirmarSenha"
                 placeholder="Confirmar Senha"
-                className="rounded p-2 focus-within:outline-none"
+                className="rounded py-3 px-2 sm:p-2 focus-within:outline-none text-sm sm:text-lg"
                 value={confirmarSenha}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
                 required
@@ -178,7 +184,7 @@ function Cadastro() {
 
             <button 
               type='submit'
-              className='rounded text-white bg-laranjaMarrom hover:bg-laranjaMarrom/70 w-1/2 py-2' 
+              className='rounded text-white bg-laranjaMarrom hover:bg-laranjaMarrom/70 w-1/2 py-2 flex justify-center' 
             >
               {isLoading ? <RotatingLines
                     strokeColor="white"

@@ -7,19 +7,20 @@ function Home() {
 
     return (
         <>
-            <div className="bg-laranjaMarrom/40 relative flex justify-center items-center h-screen w-full">
-                <img src="/img/pexels-keira-burton-6147009.jpg" className="absolute top-0 left-0 -z-10" alt="" />
-                <div className='text-bege flex justify-evenly items-center'>
-                    <div className="flex flex-col items-center justify-center w-2/5">
-                        <h1 className='xl:text-5xl text-4xl font-bold mb-8 text-center'>
-                            Seja Bem Vinde ao Além do Saber!
-                        </h1>
-                        <p className='xl:text-3xl text-2xl text-justify'>
-                            Venham expandir seu conhecimento em uma rede social educacional de apoio. Descubra novos horizontes com o Além do Saber!
-                        </p>
-                        {usuario.token === "" &&
-                            <Link to={'/cadastro'} className="text-xl p-3 mt-10 bg-laranjaMarrom rounded-2xl hover:bg-laranjaMarrom/80 transition-all duration-300">Cadastre-se</Link>
-                        }
+            <div className="h-screen w-full bg-homeBackground bg-cover bg-no-repeat bg-center">
+                <div className="h-full w-full flex justify-center items-center bg-laranjaMarrom/40">
+                    <div className='text-bege flex justify-evenly items-center'>
+                        <div className="flex flex-col items-center justify-center w-2/5">
+                            <h1 className='xl:text-5xl text-4xl font-bold mb-8 text-center'>
+                                Seja Bem Vinde ao Além do Saber!
+                            </h1>
+                            <p className='xl:text-3xl text-2xl text-justify'>
+                                Venham expandir seu conhecimento em uma rede social educacional de apoio. Descubra novos horizontes com o Além do Saber!
+                            </p>
+                            {usuario.token === "" &&
+                                <Link to={'/cadastro'} className="text-xl p-3 mt-10 bg-laranjaMarrom rounded-2xl hover:bg-laranjaMarrom/80 transition-all duration-300">Cadastre-se</Link>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
