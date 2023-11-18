@@ -10,6 +10,7 @@ import DeletarPostagem from '../components/postagens/deletarPostagem/DeletarPost
 import Navbar from '../components/navbar/Navbar';
 import Footer from '../components/footer/Footer';
 import FeedPostagens from '../pages/feedPostagens/FeedPostagens';
+import Perfil from '../pages/perfil/Perfil';
 
 function MainRoute() {
   return (
@@ -26,7 +27,8 @@ function MainRoute() {
           <Route path="/cadastroTema" element={<FormularioTema />} />
           <Route path="/editarTema/:id" element={<FormularioTema />} />
           <Route path="/deletarTema/:id" element={<DeletarTema />} />
-          
+          <Route path="/perfil" element={<Perfil />} />
+
           <Route path="/feed" element={<FeedPostagens />} />
           {/* A rota "cadastroPostagens" não está sendo utilizado */}
           <Route path="/cadastroPostagens" element={<FormularioPostagem />} />

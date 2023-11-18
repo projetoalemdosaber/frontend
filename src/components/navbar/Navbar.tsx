@@ -41,6 +41,7 @@ function Navbar() {
                                     <Link to='/temas' className='hover:font-bold hover:text-laranja'>Temas</Link>
                                     <Link to='/feed' className='hover:font-bold hover:text-laranja'>Feed</Link>
                                     <Link to='/cadastroTema' className='hover:font-bold hover:text-laranja'>Cadastrar Tema</Link>
+                                    <Link to='/perfil' className='hover:underline'>Perfil</Link>
                                     <Link to='/' className='hover:font-bold hover:text-laranja' onClick={handleLogin}>Sair</Link>
                                 </>
                             :
