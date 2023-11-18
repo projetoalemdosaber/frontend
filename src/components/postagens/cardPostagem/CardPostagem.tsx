@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useContext, useState } from 'react'
+import { ChangeEvent, FormEvent, useContext, useState } from 'react'
 
 import { AuthContext } from '../../../contexts/AuthContext'
 import Postagem from '../../../models/Postagem'
@@ -22,7 +22,25 @@ function CardPostagem({post} : CardPostagemPostagem) {
   const handleOpenSelect = () => {
       setOpenSelect((prev) => !prev)
   }
-  
+
+  const [comentarios, setComentarios] = useState([
+    'Post muito bacana, hein?! 👏👏'
+])
+
+const [novoComentarioTexto, setNovoComentarioTexto] = useState('')
+
+ // Função que vai pegar os novos comentários digitados e adiciona ao State
+ function criarNovoComentario(event: FormEvent) {
+  event.preventDefault()
+  setComentarios([...comentarios, novoComentarioTexto])
+  setNovoComentarioTexto('')
+}
+
+// Função que pega o texto do novo comentário
+function atualizarNovoComentario(event: ChangeEvent<HTMLTextAreaElement>) {
+  setNovoComentarioTexto(event.target.value)
+}
+
   return (
       <div className='h-full w-4/5 lg:w-1/2 my-4 border-slate-950/75 border flex flex-col rounded-2xl overflow-hidden justify-between'>
               
@@ -83,6 +101,40 @@ function CardPostagem({post} : CardPostagemPostagem) {
                     }).format(new Date(post.dataLancamento))
                   }
                 </p>
+     
+          
+              <div className='w-full rounded-lg'>
+
+                  {/* Parte para inserir o Comentário */}
+                  <form onSubmit={criarNovoComentario} className='flex flex-col p-4'>
+                      {/*<strong>Deixe seu comentário</strong>*/}
+                      
+                      <textarea
+                      className='mt-4'
+                          name='comment'
+                          placeholder='Deixe seu comentário'
+                          value={novoComentarioTexto}
+                          onChange={atualizarNovoComentario}
+                          required
+                      />
+                      <footer>
+                          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2 py-2 px-4 rounded-full"
+                              type="submit">Publicar</button>
+                      </footer>
+                  </form>
+              </div>
+
+            <div className='m-4'>
+
+                <h2 className='mb-4 font-bold'>Comentários</h2>
+
+                {comentarios.map(comentario => {
+                    return (
+                         <p className="mt-4">{comentario}</p>
+                    )
+                })}
+            </div>
+            
             </div>
         </div>
       </div>
