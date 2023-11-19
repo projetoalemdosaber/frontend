@@ -50,6 +50,7 @@ function Home() {
                 <div className="flex justify-between md:ml-7 md:mr-7 flex-wrap md:flex-nowrap">
                     <div className="flex flex-col items-center">
                         <img src="/img/fotosContato/Ingrid2.jpg" className="w-48 rounded-full" alt="Ingrid Manfrin" />
+                        <p className="mt-2 text-center">Ingrid Manfrin</p>
                         <div className="flex justify-evenly w-full mt-5">
                         <a href="https://www.linkedin.com/in/ingrid-manfrin-caldeira/" target="_blank"><img src="/img/logos/logo_linkedin.png" className="w-12 rounded-full"/></a>
                         <a href="https://github.com/ingridmanfrin/ingridmanfrin" target="_blank"><img src="/img/logos/logo_github.png" className="w-12 rounded-full"/></a>
@@ -57,6 +58,7 @@ function Home() {
                     </div>
                     <div>
                         <img src="/img/fotosContato/Joao2.jpg" className="w-48 rounded-full" alt="João Maia" />
+                        <p className="mt-2 text-center">João Maia</p>
                         <div className="flex justify-evenly w-full mt-5">
                         <a href="https://www.linkedin.com/in/joaopedrodamaia/" target="_blank"><img src="/img/logos/logo_linkedin.png" className="w-12 rounded-full"/></a>
                         <a href="https://github.com/JP328" target="_blank"><img src="/img/logos/logo_github.png" className="w-12 rounded-full"/></a>
@@ -64,6 +66,7 @@ function Home() {
                     </div>
                     <div>
                         <img src="/img/fotosContato/Monique2.jpg" className="w-48 rounded-full" alt="Monique Rosa" />
+                        <p className="mt-2 text-center">Monique Rosa</p>
                         <div className="flex justify-evenly w-full mt-5">
                         <a href="https://www.linkedin.com/in/rosamonique/" target="_blank"><img src="/img/logos/logo_linkedin.png" className="w-12 rounded-full"/></a>
                         <a href="https://github.com/mnqrs" target="_blank"><img src="/img/logos/logo_github.png" className="w-12 rounded-full"/></a>
@@ -71,6 +74,7 @@ function Home() {
                     </div>
                     <div>
                         <img src="/img/fotosContato/Robson2.jpg" className="w-48 rounded-full" alt="Robson Rocha" />
+                        <p className="mt-2 text-center">Robson Rocha</p>
                         <div className="flex justify-evenly w-full mt-5">
                         <a href="https://www.linkedin.com/in/robson-it/" target="_blank"><img src="/img/logos/logo_linkedin.png" className="w-12 rounded-full"/></a>
                         <a href="https://github.com/robson-it" target="_blank"><img src="/img/logos/logo_github.png" className="w-12 rounded-full"/></a>
@@ -78,6 +82,7 @@ function Home() {
                     </div>
                     <div>
                         <img src="/img/fotosContato/Udson2.jpg" className="w-48 rounded-full" alt="Udson Costa" />
+                        <p className="mt-2 text-center">Udson Costa</p>
                         <div className="flex justify-evenly w-full mt-5">
                         <a href="https://www.linkedin.com/in/udsoncosta/" target="_blank"><img src="/img/logos/logo_linkedin.png" className="w-12 rounded-full"/></a>
                         <a href="https://github.com/udsoncosta" target="_blank"><img src="/img/logos/logo_github.png" className="w-12 rounded-full"/></a>
@@ -88,7 +93,7 @@ function Home() {
                 <h2 className="text-4xl text-start mb-10 mt-16">
                     Contato
                 </h2>
-                <ul className="text-xl flex flex-row justify-center md:space-x-20 mb-10">
+                <ul className="text-xl flex flex-row justify-center md:space-x-20 mb-4">
                     {/* <li>
                     <img src="/img/146135330.png" className="w-20" alt="logo Além do Saber" />
                     </li> */}
