@@ -43,10 +43,11 @@ function Home() {
             </div>
 
             <div className= "h-full bg-bege flex-col p-10">
-                <h2 className="text-4xl text-start mb-8">
-                    Contato
+                
+                <h2 className="text-4xl text-start mb-10">
+                   Nosso Time
                 </h2>
-                <div className="flex justify-between ml-7 mr-7">
+                <div className="flex justify-between md:ml-7 md:mr-7 flex-wrap md:flex-nowrap">
                     <div className="flex flex-col items-center">
                         <img src="/img/fotosContato/Ingrid2.jpg" className="w-48 rounded-full" alt="Ingrid Manfrin" />
                         <div className="flex justify-evenly w-full mt-5">
@@ -83,14 +84,31 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <ul className="text-xl">
+
+                <h2 className="text-4xl text-start mb-10 mt-16">
+                    Contato
+                </h2>
+                <ul className="text-xl flex flex-row justify-center md:space-x-20 mb-10">
+                    {/* <li>
+                    <img src="/img/146135330.png" className="w-20" alt="logo Além do Saber" />
+                    </li> */}
                     <li>
-                    <a href='mailto:alemdosaberAS@gmail.com' target="_blank">Email</a>
+                    <a href='mailto:alemdosaberAS@gmail.com' target="_blank"><img src="/img/logos/logoEmail.png" className="w-12 rounded-full"/></a>
                     </li>
                     <li>
-                    <a href='https://github.com/projetoalemdosaber' target="_blank">GitHub</a>
+                    <a href='https://github.com/projetoalemdosaber' target="_blank"><img src="/img/logos/logo_github.png" className="w-12 rounded-full"/></a>
+                    </li>
+                    <li>
+                    <a target="_blank"><img src="/img/logos/logo_linkedin.png" className="w-12 rounded-full"/></a>
+                    </li>
+                    <li>
+                    <a target="_blank"><img src="/img/logos/logo_instagram.png" className="w-12 rounded-full"/></a>
+                    </li>
+                    <li>
+                    <a target="_blank"><img src="/img/logos/logo_facebook.png" className="w-12 rounded-full"/></a>
                     </li>
                 </ul>
+
             </div>
         </>
     )
