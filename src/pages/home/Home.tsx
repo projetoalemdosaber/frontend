@@ -45,6 +45,43 @@ function Home() {
                 <h2 className="text-4xl text-start mb-8">
                     Contato
                 </h2>
+                <div className="flex justify-between ml-7 mr-7">
+                    <div className="flex flex-col items-center">
+                        <img src="/img/fotosContato/Ingrid2.jpg" className="w-48 rounded-full" alt="Ingrid Manfrin" />
+                        <div className="flex justify-evenly w-full mt-5">
+                        <a href="https://www.linkedin.com/in/ingrid-manfrin-caldeira/" target="_blank"><img src="/img/logos/logo_linkedin.png" className="w-12 rounded-full"/></a>
+                        <a href="https://github.com/ingridmanfrin/ingridmanfrin" target="_blank"><img src="/img/logos/logo_github.png" className="w-12 rounded-full"/></a>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="/img/fotosContato/Joao2.jpg" className="w-48 rounded-full" alt="João Maia" />
+                        <div className="flex justify-evenly w-full mt-5">
+                        <a href="https://www.linkedin.com/in/joaopedrodamaia/" target="_blank"><img src="/img/logos/logo_linkedin.png" className="w-12 rounded-full"/></a>
+                        <a href="https://github.com/JP328" target="_blank"><img src="/img/logos/logo_github.png" className="w-12 rounded-full"/></a>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="/img/fotosContato/Monique2.jpg" className="w-48 rounded-full" alt="Monique Rosa" />
+                        <div className="flex justify-evenly w-full mt-5">
+                        <a href="https://www.linkedin.com/in/rosamonique/" target="_blank"><img src="/img/logos/logo_linkedin.png" className="w-12 rounded-full"/></a>
+                        <a href="https://github.com/mnqrs" target="_blank"><img src="/img/logos/logo_github.png" className="w-12 rounded-full"/></a>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="/img/fotosContato/Robson2.jpg" className="w-48 rounded-full" alt="Robson Rocha" />
+                        <div className="flex justify-evenly w-full mt-5">
+                        <a href="https://www.linkedin.com/in/robson-it/" target="_blank"><img src="/img/logos/logo_linkedin.png" className="w-12 rounded-full"/></a>
+                        <a href="https://github.com/robson-it" target="_blank"><img src="/img/logos/logo_github.png" className="w-12 rounded-full"/></a>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="/img/fotosContato/Udson2.jpg" className="w-48 rounded-full" alt="Udson Costa" />
+                        <div className="flex justify-evenly w-full mt-5">
+                        <a href="https://www.linkedin.com/in/udsoncosta/" target="_blank"><img src="/img/logos/logo_linkedin.png" className="w-12 rounded-full"/></a>
+                        <a href="https://github.com/udsoncosta" target="_blank"><img src="/img/logos/logo_github.png" className="w-12 rounded-full"/></a>
+                        </div>
+                    </div>
+                </div>
                 <ul className="text-xl">
                     <li>
                     <a href='mailto:alemdosaberAS@gmail.com' target="_blank">Email</a>
