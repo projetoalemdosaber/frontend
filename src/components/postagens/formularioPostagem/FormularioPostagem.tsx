@@ -172,7 +172,7 @@ function FormularioPostagem(props: {id?: string, close? : () => void}) {
                   <div className='flex justify-around'>
                     <div className='grid grid-cols-1'>
                       <label htmlFor="choice1">Foto</label>
-                      <input type="radio" id="choice1" name="image-video" onChange={() => setOpcaoMidia(false)} />
+                      <input type="radio" id="choice1" name="image-video" onChange={() => setOpcaoMidia(false)} checked />
                     </div>
                     <div className='grid grid-cols-1'>
                       <label htmlFor="choice2">Video</label>

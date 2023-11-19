@@ -28,12 +28,12 @@ function Navbar() {
 
                 <div className="w-[97%] relative py-4 flex justify-end">
                     <div className="absolute left-3 top-1">
-                        <Link to='/home' className='text-1xl font-bold'>
+                        <Link to='/home'>
                             <img src="/img/146135330.png" alt="Logo" className="max-w-[16%]" />
                         </Link>
                     </div>
 
-                    <nav className='flex gap-8 font-semibold'>
+                    <nav className='flex gap-8 max-md:text-sm font-semibold'>
                         <Link to='/home' className='hover:font-bold hover:text-laranja'>Inicio</Link>                            
                         {
                             logado ?
@@ -41,6 +41,7 @@ function Navbar() {
                                     <Link to='/temas' className='hover:font-bold hover:text-laranja'>Temas</Link>
                                     <Link to='/feed' className='hover:font-bold hover:text-laranja'>Feed</Link>
                                     <Link to='/cadastroTema' className='hover:font-bold hover:text-laranja'>Cadastrar Tema</Link>
+                                    <Link to='/perfil' className='hover:underline'>Perfil</Link>
                                     <Link to='/' className='hover:font-bold hover:text-laranja' onClick={handleLogin}>Sair</Link>
                                 </>
                             :

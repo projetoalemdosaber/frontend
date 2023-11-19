@@ -1,3 +1,4 @@
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -6,8 +7,13 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'crimson': ["Crimson", 'sans'],
+        'noto-sans-symbols': ["Noto Sans Symbols", 'sans'],
+      },
       backgroundImage: {
-        estudante : "url(./img/estudante.jpg)"
+        estudante : "url(/img/estudante.jpg)",
+        homeBackground: "url(/img/pexels-keira-burton-6147009.jpg)"
       },
       colors: {
         logoOrange : "rgba(234, 159, 49)",

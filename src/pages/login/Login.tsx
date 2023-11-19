@@ -37,13 +37,14 @@ function Login() {
 
     return (
         <>
-            <div className="flex h-screen justify-center items-center font-bold relative">
+            <div className="flex h-screen w-full justify-center items-center font-bold relative">
                 <video 
                     src="/img/pexels-c-technical-6334253.mp4" 
-                    className="absolute top-0 left-0 -z-10"
+                    className="-z-10 absolute w-full h-full object-cover"
                     autoPlay muted loop/>
+                
                 <form 
-                    className="w-1/3 h-3/5 flex justify-center bg-marrom/50 backdrop-blur-sm rounded items-center flex-col p-8"
+                    className="w-4/5 md:w-3/5 lg:w-1/3 h-3/5 flex justify-center bg-marrom/50 backdrop-blur-sm rounded items-center flex-col p-8"
                     onSubmit={login}
                 >
                     <h2 className="text-white text-5xl mt-4">Entrar</h2>
@@ -89,8 +90,9 @@ function Login() {
                     <hr className="border-bege w-full my-4" />
 
                     <p className="text-bege font-semibold mb-2">
+                        Ainda não tem uma conta? {" "}  
                         <Link to="/cadastro" className="hover:text-logoOrange"> 
-                            Ainda não tem uma conta? Cadastre-se
+                            Cadastre-se
                         </Link>
                     </p>
                 </form>
