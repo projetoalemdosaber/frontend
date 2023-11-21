@@ -22,7 +22,7 @@ function ListaPostagens() {
 
     async function buscarPostagens() {
         try {
-            await buscar('/postagens', setPostagens, {
+            await buscar('/postagens', handlePostagenSort, {
                 headers: {
                     Authorization: token,
                 },
@@ -34,6 +34,12 @@ function ListaPostagens() {
                 handleLogout()
             }
         }
+    }
+
+    function handlePostagenSort(data : Array<Postagem>) {
+        const postagensRecentes = data.sort((a, b) => new Date(b.dataLancamento).getTime() - new Date(a.dataLancamento).getTime())
+
+        setPostagens(postagensRecentes)
     }
 
     useEffect(() => {
@@ -49,28 +55,35 @@ function ListaPostagens() {
     
     return (
         <>
+            <div className='container mx-auto mt-24 flex flex-col justify-center items-center'>
+                {postagens.length === 0 && (
+                    <MagnifyingGlass
+                        visible={true}
+                        height="200"
+                        width="200"
+                        ariaLabel="MagnifyingGlass-loading"
+                        wrapperStyle={{}}
+                        wrapperClass="MagnifyingGlass-wrapper"
+                        glassColor = '#c0efff'
+                        color = '#C24914'
+                    />
+                )}
 
-        <div className='container mx-auto mt-24 flex flex-col justify-center items-center'>
-            {postagens.length === 0 && (
-                <MagnifyingGlass
-                    visible={true}
-                    height="200"
-                    width="200"
-                    ariaLabel="MagnifyingGlass-loading"
-                    wrapperStyle={{}}
-                    wrapperClass="MagnifyingGlass-wrapper"
-                    glassColor = '#c0efff'
-                    color = '#C24914'
-                />
-            )}
+                {
+                    postagens.map(
+                        (postagem => 
+                            postagem.user.id !== usuario.id && 
+                                <CardPostagem key={postagem.id} post={postagem} />
+                        )
+                    )
+                }
+                {/* {postagens.map((postagem) => (
+                    <CardPostagem key={postagem.id} post={postagem} />
+                ))} */}
 
-            {postagens.map((postagem) => (
-                <CardPostagem key={postagem.id} post={postagem} />
-            ))}
-
-        </div>
-    </>
-)
+            </div>
+        </>
+    )
 }
 
 export default ListaPostagens

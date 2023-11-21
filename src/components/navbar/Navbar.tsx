@@ -33,22 +33,21 @@ function Navbar() {
                         </Link>
                     </div>
 
-                    <nav className='flex gap-8 max-md:text-sm font-semibold'>
-                        <Link to='/home' className='hover:font-bold hover:text-laranja'>Inicio</Link>                            
+                    <nav className='flex gap-8 max-md:text-sm text-base font-bold font-crimson'>
+                        <Link to='/home' className='hover:text-laranja'>Inicio</Link>                            
                         {
                             logado ?
                                 <>
-                                    <Link to='/temas' className='hover:font-bold hover:text-laranja'>Temas</Link>
-                                    <Link to='/feed' className='hover:font-bold hover:text-laranja'>Feed</Link>
-                                    <Link to='/cadastroTema' className='hover:font-bold hover:text-laranja'>Cadastrar Tema</Link>
-                                    <Link to='/perfil' className='hover:underline'>Perfil</Link>
-                                    <Link to='/' className='hover:font-bold hover:text-laranja' onClick={handleLogin}>Sair</Link>
+                                    <Link to='/temas' className='hover:text-laranja'>Temas</Link>
+                                    <Link to='/feed' className='hover:text-laranja'>Feed</Link>
+                                    <Link to='/perfil' className='hover:text-laranja'>Perfil</Link>
+                                    <Link to='/' className='hover:text-laranja' onClick={handleLogin}>Sair</Link>
                                 </>
                             :
-                            <>
-                                <Link to='/cadastro' className='hover:font-bold hover:text-laranja'>Cadastre-se</Link>
-                                <Link to='/login' className='hover:font-bold hover:text-laranja'>Login</Link>
-                            </>
+                                <>
+                                    <Link to='/cadastro' className='hover:text-laranja'>Cadastre-se</Link>
+                                    <Link to='/login' className='hover:text-laranja'>Login</Link>
+                                </>
                         }
                         
                     </nav>

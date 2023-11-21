@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ChangeEvent, useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
 
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
@@ -10,16 +10,17 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import Tema from "../../../models/Tema";
 import { toastAlerta } from "../../../utils/toastAlerta";
 
-function FormularioTema() {
+function FormularioTema(props: {id? : string}) {
 
     const navigate = useNavigate();
 
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [tema, setTema] = useState<Tema>({} as Tema);
 
-    const { id } = useParams<{ id: string }>();
+    // const { id } = useParams<{ id: string }>();
+    const id = props.id
 
-    const { usuario, handleLogout } = useContext(AuthContext);
+    const { usuario, handleLogout, handleReloading } = useContext(AuthContext);
     const token = usuario.token;
 
     async function buscarPorId(id: string) {
@@ -99,6 +100,7 @@ function FormularioTema() {
             }
         }
 
+        handleReloading()
         setIsLoading(false)
         retornar()
     }
@@ -108,36 +110,36 @@ function FormularioTema() {
     }
 
     return (
-        <div className="h-screen w-full bg-estudante bg-cover bg-no-repeat">
-            <div className="w-full h-full bg-bege/70 flex flex-col items-center justify-center mx-auto">
-                <h1 className="text-4xl text-center my-8">
+        <div className="w-full">
+            <div className="w-full h-full bg-bege/70 flex flex-col items-center justify-center py-6">
+                <h1 className="text-4xl text-center mb-4">
                     {id === undefined ? 'Cadastrar Tema' : 'Editar Tema'}
                 </h1>
 
-                <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoTema}>
-                    <div className="flex flex-col gap-2 font-semibold">
-                        <label htmlFor="assunto">Assunto:</label>
+                <form className="w-3/5 flex flex-col gap-4" onSubmit={gerarNovoTema}>
+                    <div className="flex flex-col gap-3">
+                        <label htmlFor="assunto" className="font-semibold">Assunto:</label>
                         <input
                             type="text"
                             placeholder="Assunto do tema..."
                             name='assunto'
-                            className="border-2 border-slate-700 rounded p-2"
+                            className="border border-marrom/70 rounded p-2 focus:outline-marrom/70"
                             value={tema.assunto}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         />
 
-                        <label htmlFor="descricao">Descrição:</label>
+                        <label htmlFor="descricao" className="font-semibold">Descrição:</label>
                         <input
                             type="text"
                             placeholder="Descreva aqui seu tema..."
                             name='descricao'
-                            className="border-2 border-slate-700 rounded p-2"
+                            className="border border-marrom/70 rounded p-2 focus:outline-marrom/70"
                             value={tema.descricao}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         />
                     </div>
                     <button
-                        className="w-2/5 py-2 mx-auto flex justify-center text-xl font-semibold rounded text-slate-100 transition-all duration-300 bg-green-500 hover:bg-green-400 hover:w-[39%]" type="submit">
+                        className="w-2/5 mt-3 py-2 mx-auto flex justify-center text-xl font-semibold rounded text-slate-100 bg-laranjaMarrom hover:bg-laranjaMarrom/90" type="submit">
 
                         {isLoading ?
                             <RotatingLines

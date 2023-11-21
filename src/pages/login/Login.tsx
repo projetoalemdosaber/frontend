@@ -89,7 +89,7 @@ function Login() {
 
                     <hr className="border-bege w-full my-4" />
 
-                    <p className="text-bege font-semibold mb-2">
+                    <p className="text-center text-bege font-semibold mb-2">
                         Ainda não tem uma conta? {" "}  
                         <Link to="/cadastro" className="hover:text-logoOrange"> 
                             Cadastre-se

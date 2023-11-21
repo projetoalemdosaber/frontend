@@ -11,10 +11,10 @@ function Home() {
                 <div className="h-full w-full flex justify-center items-center bg-laranjaMarrom/40">
                     <div className='text-bege flex justify-evenly items-center'>
                         <div className="flex flex-col items-center justify-center w-2/5">
-                            <h1 className='xl:text-5xl text-4xl font-bold mb-8 text-center'>
+                            <h1 className='xl:text-6xl text-5xl font-bold mb-8 text-center font-crimson'>
                                 Seja Bem Vinde ao Além do Saber!
                             </h1>
-                            <p className='xl:text-3xl text-2xl text-justify'>
+                            <p className='xl:text-3xl text-3xl text-justify font-semibold font-crimson'>
                                 Venham expandir seu conhecimento em uma rede social educacional de apoio. Descubra novos horizontes com o Além do Saber!
                             </p>
                             {usuario.token === "" &&
@@ -26,7 +26,7 @@ function Home() {
             </div>
 
             <div className= "w-full h-full bg-bege flex-col p-10">
-                <h2 className=" text-3xl text-center mb-8">
+                <h2 className=" text-5xl text-center mb-8 font-crimson">
                     Sobre Nós
                 </h2>
                 <p className="text-justify text-xl my-3">
@@ -42,12 +42,11 @@ function Home() {
                 </p>
             </div>
 
-            <div className= "h-full bg-bege flex-col p-10">
-                
-                <h2 className="text-4xl text-start mb-10">
+            <div className= "h-full bg-bege flex flex-col flex-wrap items-center p-10">
+                <h2 className="text-5xl text-start mb-10 font-crimson">
                    Nosso Time
                 </h2>
-                <div className="flex justify-between md:ml-7 md:mr-7 flex-wrap md:flex-nowrap">
+                <div className="flex justify-center sm:justify-between md:ml-7 md:mr-7 flex-wrap md:flex-nowrap gap-8">
                     <div className="flex flex-col items-center">
                         <img src="/img/fotosContato/Ingrid2.jpg" className="w-48 rounded-full" alt="Ingrid Manfrin" />
                         <p className="mt-2 text-center">Ingrid Manfrin</p>
@@ -90,10 +89,10 @@ function Home() {
                     </div>
                 </div>
 
-                <h2 className="text-4xl text-start mb-10 mt-16">
+                <h2 className="text-5xl text-start mb-10 mt-16 font-crimson">
                     Contato
                 </h2>
-                <ul className="text-xl flex flex-row justify-center md:space-x-20 mb-4">
+                <ul className="text-xl flex flex-wrap justify-center md:space-x-20 mb-4 gap-6">
                     {/* <li>
                     <img src="/img/146135330.png" className="w-20" alt="logo Além do Saber" />
                     </li> */}

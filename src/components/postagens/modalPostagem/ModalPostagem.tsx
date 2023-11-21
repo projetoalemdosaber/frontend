@@ -1,6 +1,6 @@
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import { MdOutlinePostAdd } from "react-icons/md";
+import { MdCreate, MdOutlinePostAdd } from "react-icons/md";
 
 import FormularioPostagem from '../formularioPostagem/FormularioPostagem';
 
@@ -10,7 +10,12 @@ function ModalPostagem(props: {id? : string}) {
             <Popup
                 trigger={
                     <button>
-                        { props.id ? "Editar" : <MdOutlinePostAdd size={'3rem'} /> }
+                        { props.id ? 
+                            <div className='flex items-center gap-1'>
+                                <MdCreate /> 
+                                <p>Editar</p>
+                            </div>
+                        : <MdOutlinePostAdd size={'3rem'} /> }
                     </button>
                 }
                 closeOnDocumentClick

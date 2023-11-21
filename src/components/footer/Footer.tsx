@@ -4,9 +4,9 @@ function Footer() {
 
     return (
         <>
-            <div className="flex justify-center bg-begeCinzento">
+            <div className="flex justify-center bg-begeCinzento font-noto-sans-symbols">
                 <div className="container flex flex-col items-center py-4">
-                    <p className='text-md font-bold'>
+                    <p className='text-md'>
                             Além do Saber | Todos os direitos reservados {data}&copy; 
                         </p>
                     

@@ -16,7 +16,7 @@ function MainRoute() {
   return (
     <BrowserRouter>
       <Navbar />
-      <div className='min-h-[80vh]'>
+      <div className='min-h-[80vh] font-noto-sans-symbols font-light'>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />

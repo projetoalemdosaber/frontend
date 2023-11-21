@@ -22,7 +22,6 @@ function FormularioPostagem(props: {id?: string, close? : () => void}) {
 
   const [postagem, setPostagem] = useState<Postagem>({} as Postagem)
 
-  // const { id } = useParams<{ id: string }>()
   const id = props.id
 
   const { usuario, handleLogout, handleReloading } = useContext(AuthContext)
@@ -78,7 +77,7 @@ function FormularioPostagem(props: {id?: string, close? : () => void}) {
   }
 
   function back() {
-    navigate('/feed');
+    navigate('/perfil');
   }
 
   async function gerarNovaPostagem(e: ChangeEvent<HTMLFormElement>) {
@@ -131,7 +130,7 @@ function FormularioPostagem(props: {id?: string, close? : () => void}) {
   }
 
   return (
-    <div className="container flex flex-col items-center">
+    <div className="container bg-bege flex flex-col items-center">
       <h1 className="text-4xl text-center my-4">
         {id !== undefined ? 'Editar Postagem' : 'Cadastrar Postagem'}
       </h1>
@@ -146,7 +145,7 @@ function FormularioPostagem(props: {id?: string, close? : () => void}) {
                   placeholder="Insira aqui o Título"
                   name="titulo"
                   required
-                  className="border-2 border-slate-700 rounded p-2"
+                  className="border border-marrom/70 rounded p-2 focus:outline-marrom/70"
               />
           </div>
 
@@ -160,7 +159,7 @@ function FormularioPostagem(props: {id?: string, close? : () => void}) {
                   placeholder="Adicione aqui o Texto da Postagem"
                   name="texto"
                   required
-                  className="border-2 border-slate-700 rounded p-2"
+                  className="border border-marrom/70 rounded p-2 focus:outline-marrom/70"
               />
           </div>
 
@@ -193,7 +192,7 @@ function FormularioPostagem(props: {id?: string, close? : () => void}) {
                   type="url"
                   placeholder="Adicione a url do video..."
                   name="video"
-                  className="border-2 border-slate-700 rounded p-2"
+                  className="border border-marrom/70 rounded p-2 focus:outline-marrom/70"
                 />
               </>
               : 
@@ -205,7 +204,7 @@ function FormularioPostagem(props: {id?: string, close? : () => void}) {
                     type="url"
                     placeholder="Adicione a url da imagem..."
                     name="foto"
-                    className="border-2 border-slate-700 rounded p-2"
+                    className="border border-marrom/70 rounded p-2 focus:outline-marrom/70"
                   />
                 </>
             }
@@ -214,7 +213,7 @@ function FormularioPostagem(props: {id?: string, close? : () => void}) {
 
           <div className="flex flex-col gap-2">
               <p>Tema da Postagem</p>
-              <select name="tema" id="tema" className='border p-2 border-slate-800 rounded'
+              <select name="tema" id="tema" className='border border-marrom/70 rounded p-2 focus:outline-marrom/70'
                   onChange={(e) => handleTemaSelected(e.currentTarget.value)}
               >
                 <option value="" selected disabled>Selecione um Tema</option>
@@ -229,7 +228,7 @@ function FormularioPostagem(props: {id?: string, close? : () => void}) {
             type='submit'
             disabled={carregandoTema}
             className='flex justify-center rounded disabled:bg-slate-200 bg-laranjaMarrom hover:bg-laranjaMarrom/80 text-white 
-            font-bold w-1/2 mx-auto my-4 py-2'
+            font-bold w-1/2 mx-auto my-4 py-2 disabled:bg-laranjaMarrom/30'
           >
             {isLoading ?
                 <RotatingLines

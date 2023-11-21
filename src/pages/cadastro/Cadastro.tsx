@@ -31,9 +31,9 @@ function Cadastro() {
   }, [usuario])
 
   async function buscarEmail(email : string) {
-    setEmailIsAvailable("loading")
+    // setEmailIsAvailable("loading")
     await buscar(`/usuarios/email/${email}`, setEmailIsAvailable, {headers: {}})
-    .catch(() => console.log('emai não encontrado!'))
+    .catch(() => console.log('email não encontrado!'))
   }
 
   function back() {
