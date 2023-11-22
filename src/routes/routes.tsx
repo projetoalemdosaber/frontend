@@ -1,4 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ScrollToTop from '../utils/ScrollToTop';
+
 import Home from '../pages/home/Home';
 import Login from '../pages/login/Login';
 import Cadastro from '../pages/cadastro/Cadastro';
@@ -15,6 +17,7 @@ import Perfil from '../pages/perfil/Perfil';
 function MainRoute() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
       <div className='min-h-[80vh] font-noto-sans-symbols font-light'>
         <Routes>

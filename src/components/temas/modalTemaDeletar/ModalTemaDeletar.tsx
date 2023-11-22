@@ -9,14 +9,16 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import { RotatingLines } from 'react-loader-spinner';
 import { MdDelete } from 'react-icons/md';
 
-function ModalTemaDeletar(props: {id? : string}) {    
+function ModalTemaDeletar(props: {id? : string}) {   
+  const [open, setOpen] = useState(false);
+  const closeModal = () => setOpen(false); 
   const navigate = useNavigate()
 
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const id = props.id
 
-  const { usuario } = useContext(AuthContext)
+  const { usuario, handleReloading } = useContext(AuthContext)
   const token = usuario.token
 
 
@@ -48,19 +50,24 @@ function ModalTemaDeletar(props: {id? : string}) {
   }
 
   function retornar() {
-      navigate("/temas")
+    handleReloading()
+    closeModal()
+    navigate("/temas")
   }
 
   
   return (
       <>
+        <button type='button' className='flex items-center gap-1' onClick={() => setOpen(o => !o)}>
+          <MdDelete />
+          Deletar
+        </button>
         <Popup
-          trigger={
-            <button className='flex items-center gap-1'>
-                <MdDelete />
-                Deletar
-            </button>
-          }
+          contentStyle={ {width : '50%', padding: '0'}}
+          overlayStyle={{background: 'rgb(36, 23, 0, 0.5)'}}
+          open={open}
+          closeOnDocumentClick
+          onClose={closeModal}
           modal
         >
           <div className='container w-full flex flex-col justify-center items-center bg-bege'>

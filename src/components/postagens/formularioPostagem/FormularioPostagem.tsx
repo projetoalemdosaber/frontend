@@ -11,7 +11,7 @@ import Tema from '../../../models/Tema';
 import Postagem from '../../../models/Postagem';
 import { toastAlerta } from '../../../utils/toastAlerta';
 
-function FormularioPostagem(props: {id?: string, close? : () => void}) {
+function FormularioPostagem(props: {id?: string, back? : () => void}) {
 
   const navigate = useNavigate();
 
@@ -22,9 +22,9 @@ function FormularioPostagem(props: {id?: string, close? : () => void}) {
 
   const [postagem, setPostagem] = useState<Postagem>({} as Postagem)
 
-  const id = props.id
+  const {id, back } = props
 
-  const { usuario, handleLogout, handleReloading } = useContext(AuthContext)
+  const { usuario, handleLogout } = useContext(AuthContext)
   const token = usuario.token
 
   const [opcaoMidia, setOpcaoMidia] = useState(false);
@@ -76,10 +76,6 @@ function FormularioPostagem(props: {id?: string, close? : () => void}) {
     });
   }
 
-  function back() {
-    navigate('/perfil');
-  }
-
   async function gerarNovaPostagem(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault()
     setIsLoading(true)
@@ -118,7 +114,6 @@ function FormularioPostagem(props: {id?: string, close? : () => void}) {
         }
     }
 
-    handleReloading()
     setIsLoading(false)
     back()
   }
@@ -130,12 +125,14 @@ function FormularioPostagem(props: {id?: string, close? : () => void}) {
   }
 
   return (
-    <div className="container bg-bege flex flex-col items-center">
+    <div className="container bg-bege flex flex-col items-center relative">
+      <button onClick={back} className="absolute top-0 right-4 text-4xl hover:text-red-600">&times;</button>
+
       <h1 className="text-4xl text-center my-4">
         {id !== undefined ? 'Editar Postagem' : 'Cadastrar Postagem'}
       </h1>
 
-      <form className="flex flex-col w-1/2 gap-4" onSubmit={gerarNovaPostagem}>
+      <form className="flex flex-col w-3/5 gap-4" onSubmit={gerarNovaPostagem}>
           <div className="flex flex-col gap-2">
               <label htmlFor="titulo">Título da Postagem</label>
               <input
@@ -171,7 +168,7 @@ function FormularioPostagem(props: {id?: string, close? : () => void}) {
                   <div className='flex justify-around'>
                     <div className='grid grid-cols-1'>
                       <label htmlFor="choice1">Foto</label>
-                      <input type="radio" id="choice1" name="image-video" onChange={() => setOpcaoMidia(false)} checked />
+                      <input type="radio" id="choice1" name="image-video" onChange={() => setOpcaoMidia(false)} />
                     </div>
                     <div className='grid grid-cols-1'>
                       <label htmlFor="choice2">Video</label>

@@ -10,17 +10,16 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import Tema from "../../../models/Tema";
 import { toastAlerta } from "../../../utils/toastAlerta";
 
-function FormularioTema(props: {id? : string}) {
+function FormularioTema(props: {id?: string, back? : () => void}) {
 
     const navigate = useNavigate();
 
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [tema, setTema] = useState<Tema>({} as Tema);
 
-    // const { id } = useParams<{ id: string }>();
-    const id = props.id
+    const {id, back} = props
 
-    const { usuario, handleLogout, handleReloading } = useContext(AuthContext);
+    const { usuario, handleLogout } = useContext(AuthContext);
     const token = usuario.token;
 
     async function buscarPorId(id: string) {
@@ -100,23 +99,23 @@ function FormularioTema(props: {id? : string}) {
             }
         }
 
-        handleReloading()
         setIsLoading(false)
-        retornar()
+        back()
     }
 
-    function retornar() {
-        navigate("/temas")
-    }
+    // function back() {
+    //     navigate("/temas")
+    // }
 
     return (
-        <div className="w-full">
+        <div className="w-full relative">
+            <button onClick={back} className="absolute top-0 right-4 text-4xl hover:text-red-600">&times;</button>
             <div className="w-full h-full bg-bege/70 flex flex-col items-center justify-center py-6">
                 <h1 className="text-4xl text-center mb-4">
                     {id === undefined ? 'Cadastrar Tema' : 'Editar Tema'}
                 </h1>
 
-                <form className="w-3/5 flex flex-col gap-4" onSubmit={gerarNovoTema}>
+                <form className="w-4/5 flex flex-col gap-4" onSubmit={gerarNovoTema}>
                     <div className="flex flex-col gap-3">
                         <label htmlFor="assunto" className="font-semibold">Assunto:</label>
                         <input

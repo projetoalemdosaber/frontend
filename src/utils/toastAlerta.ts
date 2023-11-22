@@ -14,6 +14,7 @@ export function toastAlerta(mensagem: string, tipo: string) {
                 draggable: false,
                 theme: 'light',
                 progress: undefined,
+                className: "font-noto-sans-symbols font-light"
             });
             break;
 
@@ -28,6 +29,7 @@ export function toastAlerta(mensagem: string, tipo: string) {
                 draggable: false,
                 theme: 'light',
                 progress: undefined,
+                className: "font-noto-sans-symbols font-light"
             });
             break;
 
@@ -42,6 +44,7 @@ export function toastAlerta(mensagem: string, tipo: string) {
                 draggable: false,
                 theme: 'light',
                 progress: undefined,
+                className: "font-noto-sans-symbols font-light"
             });
             break;
 
@@ -56,6 +59,7 @@ export function toastAlerta(mensagem: string, tipo: string) {
                 draggable: false,
                 theme: 'light',
                 progress: undefined,
+                className: "font-noto-sans-symbols font-light"
             });
             break;
     }
