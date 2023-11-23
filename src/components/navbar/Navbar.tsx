@@ -9,7 +9,7 @@ function Navbar() {
     const [logado, setLogado] = useState(false);
     const { usuario, handleLogout } = useContext(AuthContext)
 
-    const handleLogin = () => {
+    const handleUserLogout = () => {
         handleLogout()
         toastAlerta('Usuário deslogado com sucesso', 'sucesso')
         setLogado(false)
@@ -18,9 +18,12 @@ function Navbar() {
     useEffect(() => {
         if (usuario.token !== "") {
             setLogado(true)
+        } else {
+            setLogado(false)
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [usuario])
+
 
     return (
         <>
@@ -41,7 +44,7 @@ function Navbar() {
                                     <Link to='/temas' className='hover:text-laranja'>Temas</Link>
                                     <Link to='/feed' className='hover:text-laranja'>Feed</Link>
                                     <Link to='/perfil' className='hover:text-laranja'>Perfil</Link>
-                                    <Link to='/' className='hover:text-laranja' onClick={handleLogin}>Sair</Link>
+                                    <Link to='/' className='hover:text-laranja' onClick={handleUserLogout}>Sair</Link>
                                 </>
                             :
                                 <>

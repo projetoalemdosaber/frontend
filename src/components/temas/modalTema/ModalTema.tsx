@@ -1,6 +1,7 @@
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import { IoDuplicate } from 'react-icons/io5';
+// import { IoDuplicate } from 'react-icons/io5';
+import { MdFormatListBulletedAdd } from "react-icons/md";
 
 import FormularioTema from '../formularioTema/FormularioTema';
 import { useContext, useState } from 'react';
@@ -24,7 +25,7 @@ function ModalTema(props: {id? : string}) {
     return (
         <>
             <button type="button" onClick={() => setOpen(o => !o)}>
-                { props.id ? "Editar" : <IoDuplicate size={'4rem'} /> }
+                { props.id ? "Editar" : <MdFormatListBulletedAdd size={'4rem'} /> }
             </button>
             <Popup
                 contentStyle={ {width : '50%', padding: '0'}}

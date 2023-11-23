@@ -1,13 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { FaUserEdit } from "react-icons/fa";
 
-import { AuthContext } from '../../contexts/AuthContext';
-import { toastAlerta } from '../../utils/toastAlerta';
-import CardPostagem from '../../components/postagens/cardPostagem/CardPostagem';
 import Postagem from '../../models/Postagem';
+import { AuthContext } from '../../contexts/AuthContext';
 import { buscar } from '../../services/Service';
+
+import CardPostagem from '../../components/postagens/cardPostagem/CardPostagem';
+import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
+
+import { toastAlerta } from '../../utils/toastAlerta';
 
 function Perfil() {
   const [postagens, setPostagens] = useState<Postagem[]>([]);
@@ -47,15 +51,28 @@ function Perfil() {
     <div className='w-full min-h-screen pt-4 overflow-hidden bg-bege flex flex-col justify-center items-center'>
       
       <div className="w-4/5 mt-44 h-72 flex flex-col rounded-3xl bg-logoOrange text-white text-2xl items-center justify-center">
-        <img
-          className='rounded-full w-56 mt-[-10rem] border-8 border-bege relative z-10'
-          src={usuario.foto}
-          alt={`Foto de perfil de ${usuario.nome}`}
-        />
+        
+        <div className=' overflow-hidden rounded-[50%] w-52 h-52 mt-[-8rem] border-8 border-bege relative z-10'>
+          <img
+            className='w-full h-full object-cover'
+            src={usuario.foto}
+            alt={`Foto de perfil de ${usuario.nome}`}
+          />
+        </div>
         <p className="font-bold">{usuario.nome}</p>
         <p className="font-bold">{usuario.usuario}</p>
+
+        <div className='w-full flex justify-evenly mt-4'>
+          <div className="w-4/5 max-lg:w-1/4 flex max-lg:flex-col items-center justify-center ">
+            <ModalPostagem />
+          </div>
+          <Link to={`/editar/${usuario.id}`} className="w-4/5 max-lg:w-1/4 flex max-lg:flex-col items-center justify-center gap-4">
+            <FaUserEdit className={"text-[4rem]"} />
+            <p className='text-lg'>Editar Informações</p>
+          </Link>
+        </div>
       </div>
-      <div className='flex flex-col justify-center items-center'>
+      <div className='container flex flex-col justify-center items-center'>
         <h1 className='text-3xl font-bold mt-8'>Minhas Postagens</h1>
         <p className='text-xl font-semibold my-4'>Veja as suas postagens, aqui você pode edita-las ou deleta-las.</p>
         {

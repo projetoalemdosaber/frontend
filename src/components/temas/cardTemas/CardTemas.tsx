@@ -35,15 +35,14 @@ function CardTemas({tema} : CardTemasProps) {
                 <SlOptions onClick={handleOpenSelect} className="cursor-pointer" />
                 <div ref={optionsRefTema} className={`absolute top-5 border-2 border-begeCinzento bg-bege rounded-md w-1/2 flex flex-col justify-center items-center p-2 font-semibold text-slate-900 transition-all duration-700 
                 ${openSelect ? 'visible right-4' : 'right-0 invisible opacity-0'}`}>
-                    <div 
-                        onClick={handleOpenSelect}
-                        className='w-full text-base flex items-center gap-1 hover:text-blue-700'>
+                    <div onClick={handleOpenSelect} className='w-full text-base flex items-center gap-1 hover:text-blue-700'>
                         <MdCreate />
                         <ModalTema id={tema.id.toString() } />
                     </div>
                     <div onClick={handleOpenSelect} className='w-full text-base flex items-center gap-1 hover:text-red-700'>
                         <ModalTemaDeletar  id={tema.id.toString()} />
                     </div>
+
                     <h2 className='w-full text-base flex items-center gap-1 hover:text-emerald-600 cursor-pointer'>
                         <IoMdShareAlt />
                         Compartilhar

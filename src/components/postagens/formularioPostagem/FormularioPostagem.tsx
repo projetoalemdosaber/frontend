@@ -136,27 +136,26 @@ function FormularioPostagem(props: {id?: string, back? : () => void}) {
           <div className="flex flex-col gap-2">
               <label htmlFor="titulo">Título da Postagem</label>
               <input
-                  value={postagem.titulo}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                  type="text"
-                  placeholder="Insira aqui o Título"
-                  name="titulo"
-                  required
-                  className="border border-marrom/70 rounded p-2 focus:outline-marrom/70"
+                value={postagem.titulo}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                type="text"
+                placeholder="Insira aqui o Título"
+                name="titulo"
+                required
+                className="border border-marrom/70 rounded p-2 focus:outline-marrom/70"
               />
           </div>
 
           <div className="flex flex-col gap-2">
               <label htmlFor="texto">Texto da Postagem</label>
-
               <input
-                  value={postagem.texto}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                  type="text"
-                  placeholder="Adicione aqui o Texto da Postagem"
-                  name="texto"
-                  required
-                  className="border border-marrom/70 rounded p-2 focus:outline-marrom/70"
+                value={postagem.texto}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                type="text"
+                placeholder="Adicione aqui o Texto da Postagem"
+                name="texto"
+                required
+                className="border border-marrom/70 rounded p-2 focus:outline-marrom/70"
               />
           </div>
 
@@ -209,17 +208,17 @@ function FormularioPostagem(props: {id?: string, back? : () => void}) {
           </div>
 
           <div className="flex flex-col gap-2">
-              <p>Tema da Postagem</p>
-              <select name="tema" id="tema" className='border border-marrom/70 rounded p-2 focus:outline-marrom/70'
-                  onChange={(e) => handleTemaSelected(e.currentTarget.value)}
-              >
-                <option value="" selected disabled>Selecione um Tema</option>
-                {temas.map((tema) => (
-                  <>
-                    <option value={tema.id}>{tema.assunto}</option>
-                  </>
-                ))}
-              </select>
+            <p>Tema da Postagem</p>
+            <select name="tema" id="tema" className='border border-marrom/70 rounded p-2 focus:outline-marrom/70'
+                onChange={(e) => handleTemaSelected(e.currentTarget.value)}
+            >
+              <option value="" selected disabled>Selecione um Tema</option>
+              {temas.map((tema) => (
+                <>
+                  <option value={tema.id}>{tema.assunto}</option>
+                </>
+              ))}
+            </select>
           </div>
           <button
             type='submit'
@@ -227,15 +226,17 @@ function FormularioPostagem(props: {id?: string, back? : () => void}) {
             className='flex justify-center rounded disabled:bg-slate-200 bg-laranjaMarrom hover:bg-laranjaMarrom/80 text-white 
             font-bold w-1/2 mx-auto my-4 py-2 disabled:bg-laranjaMarrom/30'
           >
-            {isLoading ?
+            {
+              isLoading ?
                 <RotatingLines
                     strokeColor="white"
                     strokeWidth="5"
                     animationDuration="0.75"
                     width="24"
                     visible={true}
-                /> :
-              <span>Confirmar</span>
+                /> 
+              :
+                <span>Confirmar</span>
             }
           </button>
       </form>

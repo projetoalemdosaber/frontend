@@ -81,7 +81,7 @@ function ListaTemas() {
               <h1 className="text-5xl text-center my-10 font-crimson font-semibold">Temas cadastrados</h1>
               
               <div className="w-1/2 min-h-[7rem] flex items-center justify-between px-6 text-bege bg-logoOrange mb-6 rounded-3xl">
-                <div className="md:flex ml-8 md:gap-2">
+                <div className="flex items-center ml-8 md:gap-2">
                   <ModalTema />
                   <p className="w-full md:w-6 text-[0.6rem] md:text-lg  text-center font-semibold">Novo Tema</p>
                 </div>

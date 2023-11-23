@@ -23,13 +23,20 @@ function ModalPostagem(props: {id? : string}) {
 
     return (
         <>
-            <button type="button" onClick={() => setOpen(o => !o)}>
+            <button type="button" className='flex max-xl:flex-col items-center' onClick={() => setOpen(o => !o)}>
                 { props.id ? 
                     <div className='flex items-center gap-1'>
                         <MdCreate /> 
                         <p>Editar</p>
                     </div>
-                : <MdOutlinePostAdd size={'3rem'} /> }
+                : 
+                    <>
+                        <MdOutlinePostAdd className="text-[3rem] lg:text-[3.8rem] xl:text-[5rem] lg:ml-2" /> 
+                        <p className="text-[0.7rem] lg:text-sm text-center max-md:invisible max-md:absolute">
+                            Cadastrar Postagem
+                        </p>
+                    </>
+                }
             </button>
             <Popup
                 contentStyle={ {width : '40%', padding: '0'}}

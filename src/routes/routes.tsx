@@ -25,6 +25,7 @@ function MainRoute() {
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/editar/:id" element={<Cadastro />} />
           
           <Route path="/temas" element={<ListaTemas />} />
           <Route path="/cadastroTema" element={<FormularioTema />} />
