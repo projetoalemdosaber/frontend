@@ -26,7 +26,7 @@ function FeedPostagens() {
         >
 
           <Link to={'/perfil'} className="w-3/5 max-lg:w-1/4 flex lg:flex-col justify-center items-center gap-2 max-lg:px-3 hover:cursor-pointer">
-            <div className='overflow-hidden rounded-[50%] h-10 lg:h-14 min-w-[2.5rem] max-w-[50%] max-lg:w-2/12 max-md:w-1/3'>
+            <div className='overflow-hidden rounded-[50%] h-10 lg:h-14 w-10 lg:w-14'>
               <img
                 className='w-full h-full object-cover'
                 src={usuario.foto}

@@ -6,6 +6,7 @@ import { atualizar, buscar, cadastrarUsuario } from "../../services/Service";
 import { RotatingLines } from "react-loader-spinner";
 import { toastAlerta } from "../../utils/toastAlerta";
 import { AuthContext } from "../../contexts/AuthContext";
+import UsuarioLogin from "../../models/UsuarioLogin";
 
 function Cadastro() {
   const { id } = useParams();
@@ -25,7 +26,9 @@ function Cadastro() {
     dataNascimento: ''
   })
 
-  const {usuario} = useContext(AuthContext);
+  const { usuario, handleLogin } = useContext(AuthContext);
+
+  const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>( {} as UsuarioLogin );
 
   useEffect(() => {
     if (usuarioForm.id !== 0) {
@@ -42,11 +45,13 @@ function Cadastro() {
   }, [id])
 
   async function buscarEmail(email : string) {
-    // setEmailIsAvailable("loading")
-    if (id === undefined) {
+      setEmailIsAvailable("loading")
+
       await buscar(`/usuarios/email/${email}`, setEmailIsAvailable, {headers: {}})
-      .catch(() => console.log('email não encontrado!'))
-    }
+      .catch(() => { 
+        console.log(emailIsAvailable)
+        setEmailIsAvailable('')
+      })
   }
 
   async function buscarUsuarioPorId(id: string) {
@@ -66,45 +71,48 @@ function Cadastro() {
   }
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-      setUsuarioForm({
-          ...usuarioForm,
-          [e.target.name]: e.target.value
-      })
+    setUsuarioForm({
+      ...usuarioForm,
+      [e.target.name]: e.target.value
+    })    
 
-      if (e.target.name === 'usuario' && e.target.value.indexOf('@') > 0 && e.target.value.indexOf('.') > 0) {
-        buscarEmail(e.target.value)
-      }
+    if (id !== '' && (e.target.name === 'usuario' || e.target.name === 'senha')) {
+      setUsuarioLogin({
+        ...usuarioLogin,
+        [e.target.name]: e.target.value 
+      })
+    }
+
+    if (e.target.name === 'usuario' && e.target.value.indexOf('@') > 0 && e.target.value.indexOf('.') > 0) {
+      buscarEmail(e.target.value)
+    }
   }
 
   async function cadastrarNovoUsuario(e: FormEvent<HTMLFormElement>) {
       e.preventDefault()
-      
+
       if (confirmarSenha === usuarioForm.senha && usuarioForm.senha.length >= 8) {
         setIsLoading(true)
 
         if (emailIsAvailable === 'loading') {
           toastAlerta('Estamos verificando se seu e-mail é válido, aguarde', 'info')
-        } else if (emailIsAvailable === '') {
+
+        } else if (emailIsAvailable === '' || usuario.usuario === usuarioForm.usuario) {
           if (id != undefined) {
             try {
               await atualizar(`/usuarios/atualizar`, usuarioForm, setUsuarioForm, {
                 headers: {
                     Authorization: usuario.token,
                 },
+              }).then(() => {
+                navigate('/perfil')
+                handleLogin(usuarioLogin)
+                toastAlerta('Usuário atualizado com sucesso', 'sucesso')
               })
-              toastAlerta('Usuário atualizado com sucesso', 'sucesso')
-              navigate('/perfil')
-
-              // const dados = {
-              //   nome: usuarioForm.nome, 
-              //   dataNascimento: usuarioForm.dataNascimento, 
-              //   usuario: usuarioForm.usuario, 
-              //   foto: usuarioForm.foto }
-              
-
             } catch (error) {
                 toastAlerta('Erro ao atualizar os dados do Usuário', 'erro')
             }
+
           } else {
             try {
               await cadastrarUsuario(`/usuarios/cadastrar`, usuarioForm, setUsuarioForm)
@@ -187,7 +195,7 @@ function Cadastro() {
               type="text"
               id="foto"
               name="foto"
-              placeholder="Foto"
+              placeholder="Url da sua Foto"
               className="rounded p-2 focus-within:outline-none"
               value={usuarioForm.foto}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}

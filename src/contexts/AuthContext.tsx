@@ -39,11 +39,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setReloading((prev) => !prev)
     }
 
-    // function handleUsuarioUpdate(dados) {
-    //     dados.map(() => {
-    //     })
-    // }
-
     async function handleLogin(userLogin: UsuarioLogin) {
         setIsLoading(true)
         try {
