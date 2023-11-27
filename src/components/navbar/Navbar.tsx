@@ -27,7 +27,7 @@ function Navbar() {
 
     return (
         <>
-            <header className='w-full bg-begeClaro backdrop-blur-sm/90 text-slate-900 flex fixed z-50 top-0 shadow-md shadow-black/30'>
+            <header className='w-full bg-begeClaro backdrop-blur-sm/90 text-slate-900 flex lg:fixed z-50 top-0 shadow-md shadow-black/30'>
 
                 <div className="w-[97%] relative py-4 flex justify-end">
                     <div className="absolute left-3 top-1">
@@ -36,7 +36,7 @@ function Navbar() {
                         </Link>
                     </div>
 
-                    <nav className='flex gap-8 max-md:text-sm text-base font-bold font-crimson'>
+                    <nav className='flex gap-8 max-md:text-xs text-base font-bold font-crimson'>
                         <Link to='/home' className='hover:text-laranja'>Inicio</Link>                            
                         {
                             logado ?

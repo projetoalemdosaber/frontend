@@ -5,6 +5,7 @@ import {AuthContext} from "../../contexts/AuthContext";
 import UsuarioLogin from "../../models/UsuarioLogin.ts";
 
 import {RotatingLines} from "react-loader-spinner";
+import { toastAlerta } from "../../utils/toastAlerta.ts";
 
 
 function Login() {
@@ -32,7 +33,9 @@ function Login() {
 
     function login(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        handleLogin(usuarioLogin)
+        handleLogin(usuarioLogin).then(() =>
+            toastAlerta("Usuário logado com sucesso", 'sucesso')
+        )
     } 
 
     return (

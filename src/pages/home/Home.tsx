@@ -10,11 +10,11 @@ function Home() {
             <div className="h-screen w-full bg-homeBackground bg-cover bg-no-repeat bg-center">
                 <div className="h-full w-full flex justify-center items-center bg-laranjaMarrom/40">
                     <div className='text-bege flex justify-evenly items-center'>
-                        <div className="flex flex-col items-center justify-center w-2/5">
+                        <div className="flex flex-col items-center justify-center w-4/5 md:w-3/5 lg:w-2/5">
                             <h1 className='xl:text-6xl text-5xl font-bold mb-8 text-center font-crimson'>
                                 Seja Bem Vinde ao Além do Saber!
                             </h1>
-                            <p className='xl:text-3xl text-3xl text-justify font-semibold font-crimson'>
+                            <p className='text-xl xl:text-3xl text-justify font-semibold font-crimson'>
                                 Venham expandir seu conhecimento em uma rede social educacional de apoio. Descubra novos horizontes com o Além do Saber!
                             </p>
                             {usuario.token === "" &&
@@ -25,19 +25,19 @@ function Home() {
                 </div>
             </div>
 
-            <div className= "w-full h-full bg-bege flex-col p-10">
-                <h2 className=" text-5xl text-center mb-8 font-crimson">
+            <div className= "w-full h-full bg-bege flex-col p-10 text-base md:text-xl">
+                <h2 className="text-4xl lg:text-5xl text-center mb-8 font-crimson">
                     Sobre Nós
                 </h2>
-                <p className="text-justify text-xl my-3">
+                <p className="text-justify my-3">
                     Além do Saber é uma plataforma de mídia social dedicada a promover a educação de alta qualidade. Aqui, criamos um espaço que favorece a conectividade e a interação entre indivíduos em um ambiente acessível e sem custos, pois acreditamos firmemente no poder da colaboração e do apoio mútuo para fazer uma diferença real.
                 </p>
 
-                <p className="text-justify text-xl my-3">
+                <p className="text-justify my-3">
                     Nosso principal objetivo, nesta rede social, é contribuir para o cumprimento do Objetivo de Desenvolvimento Sustentável 4 da ONU (Educação de Qualidade), que estabelece a meta de, até 2030, garantir que todos os jovens e uma parcela significativa dos adultos, tanto homens quanto mulheres, estejam alfabetizados e tenham adquirido conhecimentos fundamentais em matemática.           
                 </p>
 
-                <p className="text-justify text-xl my-3">
+                <p className="text-justify my-3">
                     Esta plataforma desempenha um importante papel na disseminação da educação de maneira gratuita e na reunião de pessoas de diversas origens em prol do avanço educacional. Fornecemos uma rede de apoio para capacitar aqueles que podem estar se sentindo desmotivados em relação à aprendizagem e ao desenvolvimento, ao mesmo tempo em que lhes disponibilizamos as ferramentas necessárias para esse fim.
                 </p>
             </div>

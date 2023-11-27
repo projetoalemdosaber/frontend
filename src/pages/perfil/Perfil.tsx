@@ -66,9 +66,9 @@ function Perfil() {
           <div className="w-4/5 max-lg:w-1/4 flex max-lg:flex-col items-center justify-center ">
             <ModalPostagem />
           </div>
-          <Link to={`/editar/${usuario.id}`} className="w-4/5 max-lg:w-1/4 flex max-lg:flex-col items-center justify-center gap-4">
-            <FaUserEdit className={"text-[4rem]"} />
-            <p className='text-lg'>Editar Informações</p>
+          <Link to={`/editar/${usuario.id}`} className="w-4/5 max-lg:w-1/4 flex max-xl:flex-col items-center justify-center xl:gap-4">
+            <FaUserEdit className={"text-[3rem] lg:text-[3.8rem] xl:text-[5rem]"} />
+            <p className='text-[0.7rem] lg:text-sm text-center max-md:invisible max-md:absolute'>Editar Informações</p>
           </Link>
         </div>
       </div>

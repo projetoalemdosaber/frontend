@@ -5,20 +5,16 @@ import { MdCreate, MdOutlinePostAdd } from "react-icons/md";
 import FormularioPostagem from '../formularioPostagem/FormularioPostagem';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 function ModalPostagem(props: {id? : string}) {    
     const [open, setOpen] = useState(false);
     const closeModal = () => setOpen(false);
-
-    const navigate = useNavigate();
 
     const { handleReloading } = useContext(AuthContext)
 
     function back() {
         handleReloading()
         closeModal()
-        navigate("/perfil")
     }
 
     return (
@@ -31,8 +27,8 @@ function ModalPostagem(props: {id? : string}) {
                     </div>
                 : 
                     <>
-                        <MdOutlinePostAdd className="text-[3rem] lg:text-[3.8rem] xl:text-[5rem] lg:ml-2" /> 
-                        <p className="text-[0.7rem] lg:text-sm text-center max-md:invisible max-md:absolute">
+                        <MdOutlinePostAdd className="text-2xl lg:text-[3.8rem] xl:text-[5rem] lg:ml-2" /> 
+                        <p className="text-[0.6rem] lg:text-sm text-center max-md:invisible max-md:absolute">
                             Cadastrar Postagem
                         </p>
                     </>

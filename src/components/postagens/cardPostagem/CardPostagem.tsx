@@ -51,7 +51,7 @@ function CardPostagem({post, owner} : CardPostagemPostagem) {
   useEffect(() => {
     const handleCloseOption = (e : MouseEvent) => {
       if (optionsRef.current && !optionsRef.current.contains(e.target as Node)) {
-        setOpenSelect(false)
+        setOpenSelect(false)  
       }
     }
 
@@ -133,10 +133,9 @@ function CardPostagem({post, owner} : CardPostagemPostagem) {
               <h3 className='text-sm sm:text-base lg:text-lg font-bold text-center capitalize'>{post.user?.nome}</h3>
             </div>
 
-            <div>
+            <div ref={optionsRef}>
               <SlOptions className="text-2xl sm:text-4xl" onClick={(handleOpenSelect)} />
                 <div 
-                  ref={optionsRef}
                   className={`absolute top-10 border-2 border-begeCinzento bg-bege rounded-md w-1/4 flex flex-col justify-center items-center p-2 font-semibold text-slate-900 transition-all duration-700 
                   ${openSelect ? 'visible right-4' : 'right-0 invisible opacity-0'}`}>
                   {
@@ -151,7 +150,7 @@ function CardPostagem({post, owner} : CardPostagemPostagem) {
                       </>
                   }
                   
-                  <h2 className='w-full text-base flex items-center gap-1 hover:text-emerald-600 cursor-pointer'>
+                  <h2 onClick={handleOpenSelect} className='w-full text-base flex items-center gap-1 hover:text-emerald-600 cursor-pointer'>
                       <IoMdShareAlt />
                       Compartilhar
                   </h2>

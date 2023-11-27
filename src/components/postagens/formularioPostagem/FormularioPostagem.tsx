@@ -103,7 +103,7 @@ function FormularioPostagem(props: {id?: string, back? : () => void}) {
                   Authorization: token,
               },
           })
-          toastAlerta('Postagem cadastrada com sucesso', 'sucesso');
+          toastAlerta('Postagem cadastrada com sucesso! Verifique a página de perfil.', 'sucesso');
         } catch (error: any) {
           if (error.toString().includes('403')) {
               toastAlerta('O token expirou, favor logar novamente', 'erro')
