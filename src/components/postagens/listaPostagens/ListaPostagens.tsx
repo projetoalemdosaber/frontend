@@ -55,7 +55,7 @@ function ListaPostagens() {
     
     return (
         <>
-            <div className='container mx-auto mt-24 flex flex-col justify-center items-center'>
+            <div className='w-full mt-24 flex flex-col justify-center items-center'>
                 {postagens.length === 0 && (
                     <MagnifyingGlass
                         visible={true}

@@ -30,10 +30,10 @@ function CardTemas({tema} : CardTemasProps) {
 
     return (
         <div className='relative flex flex-col rounded-2xl overflow-hidden justify-between shadow-sm shadow-black'>
-            <header className='flex justify-between items-center py-2 px-6 bg-logoOrange text-white font-bold text-xl'>
+            <header className='flex justify-between items-center py-2 px-2 md:px-4 bg-logoOrange text-white font-bold text-base md:text-xl'>
                 {tema.assunto} 
                 <div ref={optionsRefTema}>
-                    <SlOptions onClick={handleOpenSelect} className="cursor-pointer" />
+                    <SlOptions onClick={handleOpenSelect} className="cursor-pointer text-xl md:text-2xl" />
                     <div className={`absolute top-8 border-2 border-begeCinzento bg-bege rounded-md w-1/2 flex flex-col justify-center items-center p-2 font-semibold text-slate-900 transition-all duration-700 
                     ${openSelect ? 'visible right-4' : 'right-0 invisible opacity-0'}`}>
                         <div onClick={handleOpenSelect} className='w-full text-base flex items-center gap-1 hover:text-blue-700'>
@@ -51,7 +51,7 @@ function CardTemas({tema} : CardTemasProps) {
                     </div>
                 </div>
             </header>
-            <p className='p-8 text-lg bg-bege h-full text-justify'>
+            <p className='p-5 md:p-8 text-sm md:text-lg bg-bege h-full text-justify'>
                 {tema.descricao}
             </p>
         </div>

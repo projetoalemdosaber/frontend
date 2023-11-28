@@ -115,7 +115,7 @@ function CardPostagem({post, owner} : CardPostagemPostagem) {
   }
 
   return (
-    <div className='h-full w-4/5 lg:w-1/2 my-4 border-slate-950/75 border flex flex-col rounded-2xl overflow-hidden justify-between'>
+    <div className='h-full w-[96%] md:w-4/5 lg:w-1/2 my-4 border-slate-950/75 border flex flex-col rounded-2xl overflow-hidden justify-between'>
             
       <div className='w-full min-h-[80vh]'>
           <div className="relative flex justify-between items-center bg-logoOrange py-2 px-4 text-white">

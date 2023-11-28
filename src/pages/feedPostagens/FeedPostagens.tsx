@@ -22,7 +22,7 @@ function FeedPostagens() {
     <>
       <div className="min-h-screen w-full flex justify-center items-center bg-bege">
         <div 
-          className="h-[70vh] max-lg:h-[10vh] w-[14%] max-lg:w-[90%] fixed top-[5%] max-lg:top-0 left-0 max-lg:left-0 bg-logoOrange rounded-3xl mt-20 ml-6 md:ml-12 lg:ml-20 flex lg:flex-col items-center justify-between lg:justify-evenly lg:pb-6 text-bege font-semibold z-30" 
+          className="h-[70vh] max-lg:h-[10vh] w-[14%] max-lg:w-[90%] fixed top-[5%] max-lg:top-0 left-0 max-lg:left-0 bg-logoOrange rounded-3xl mt-20 ml-5 md:ml-12 lg:ml-20 flex lg:flex-col items-center justify-between lg:justify-evenly lg:pb-6 text-bege font-semibold z-30 shadow-md shadow-marrom/75 " 
         >
 
           <Link to={'/perfil'} className="w-3/5 max-lg:w-1/4 flex lg:flex-col justify-center items-center gap-2 max-lg:px-3 hover:cursor-pointer">
@@ -42,7 +42,7 @@ function FeedPostagens() {
           
           <Link to={'/temas'} className="w-4/5 max-lg:w-1/4 flex max-xl:flex-col items-center xl:gap-6" >
             <MdFormatListBulleted className="lg:ml-2 text-2xl lg:text-[2.5rem]"/>
-            <p className=" text-[0.7rem] lg:text-lg text-center max-md:invisible max-md:absolute">
+            <p className="text-[0.7rem] lg:text-lg text-center max-md:invisible max-md:absolute">
               Temas
             </p>
           </Link> 

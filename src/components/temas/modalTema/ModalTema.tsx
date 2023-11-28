@@ -25,7 +25,7 @@ function ModalTema(props: {id? : string}) {
     return (
         <>
             <button type="button" onClick={() => setOpen(o => !o)}>
-                { props.id ? "Editar" : <MdFormatListBulletedAdd size={'4rem'} /> }
+                { props.id ? "Editar" : <MdFormatListBulletedAdd className="text-4xl lg:text-[2.5rem]" /> }
             </button>
             <Popup
                 contentStyle={ {width : '50%', padding: '0'}}

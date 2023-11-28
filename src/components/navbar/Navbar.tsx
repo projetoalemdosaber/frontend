@@ -1,11 +1,11 @@
 // import { useContext } from "react"
  import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../../contexts/AuthContext"
 import { toastAlerta } from "../../utils/toastAlerta";
 
 function Navbar() {
-
+    const navigate = useNavigate();
     const [logado, setLogado] = useState(false);
     const { usuario, handleLogout } = useContext(AuthContext)
 
@@ -30,13 +30,16 @@ function Navbar() {
             <header className='w-full bg-begeClaro backdrop-blur-sm/90 text-slate-900 flex lg:fixed z-50 top-0 shadow-md shadow-black/30'>
 
                 <div className="w-[97%] relative py-4 flex justify-end">
-                    <div className="absolute left-3 top-1">
-                        <Link to='/home'>
-                            <img src="/img/146135330.png" alt="Logo" className="max-w-[16%]" />
-                        </Link>
+                    <div className="absolute left-3 top-1 ">
+                        <img 
+                            src="/img/146135330.png" 
+                            alt="Logo" 
+                            className="max-w-[12%] md:max-w-[16%]" 
+                            onClick={() => navigate('/home')}/>
+
                     </div>
 
-                    <nav className='flex gap-8 max-md:text-xs text-base font-bold font-crimson'>
+                    <nav className='flex gap-4 md:gap-8 max-md:text-xs text-base font-bold font-crimson z-10'>
                         <Link to='/home' className='hover:text-laranja'>Inicio</Link>                            
                         {
                             logado ?

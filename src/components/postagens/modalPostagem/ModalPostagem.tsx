@@ -27,7 +27,7 @@ function ModalPostagem(props: {id? : string}) {
                     </div>
                 : 
                     <>
-                        <MdOutlinePostAdd className="text-2xl lg:text-[3.8rem] xl:text-[5rem] lg:ml-2" /> 
+                        <MdOutlinePostAdd className="text-3xl lg:text-[3.8rem] xl:text-[5rem] lg:ml-2" /> 
                         <p className="text-[0.6rem] lg:text-sm text-center max-md:invisible max-md:absolute">
                             Cadastrar Postagem
                         </p>

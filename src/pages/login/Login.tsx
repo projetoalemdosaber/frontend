@@ -50,9 +50,9 @@ function Login() {
                     className="w-4/5 md:w-3/5 lg:w-1/3 h-3/5 flex justify-center bg-marrom/50 backdrop-blur-sm rounded items-center flex-col p-8"
                     onSubmit={login}
                 >
-                    <h2 className="text-white text-5xl mt-4">Entrar</h2>
-                    <div className="flex flex-col w-full my-3">
-                        <label htmlFor="usuario" className="text-xl text-bege">E-mail</label>
+                    <h2 className="text-white text-4xl md:text-5xl my-4 ">Entrar</h2>
+                    <div className="flex flex-col w-full">
+                        <label htmlFor="usuario" className="text-lg md:text-xl text-bege">E-mail</label>
                         <input
                             type="text"
                             id="usuario"
@@ -65,7 +65,7 @@ function Login() {
                         />
                     </div>
                     <div className="flex flex-col w-full my-3">
-                        <label htmlFor="senha" className="text-xl text-bege">Senha</label>
+                        <label htmlFor="senha" className="text-lg md:text-xl text-bege">Senha</label>
                         <input
                             type="password"
                             id="senha"
@@ -92,7 +92,7 @@ function Login() {
 
                     <hr className="border-bege w-full my-4" />
 
-                    <p className="text-center text-bege font-semibold mb-2">
+                    <p className="max-md:text-sm text-center text-bege font-semibold mb-4 md:mb-2">
                         Ainda não tem uma conta? {" "}  
                         <Link to="/cadastro" className="hover:text-logoOrange"> 
                             Cadastre-se

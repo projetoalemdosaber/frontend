@@ -76,24 +76,24 @@ function ListaTemas() {
           />
         </div>
       :
-        <div className="w-full min-h-screen bg-bege flex flex-wrap justify-center items-center mt-14 pb-14 max-xl:px-6">
-            <div className="container flex flex-col justify-center items-center">
-              <h1 className="text-5xl text-center my-10 font-crimson font-semibold">Temas cadastrados</h1>
+        <div className="w-full min-h-screen bg-bege flex flex-wrap justify-center items-center pb-14 max-xl:px-2">
+            <div className="flex flex-col justify-center items-center mt-6 md:mt-20 px-2 md:px-6">
+              <h1 className="text-3xl lg:text-5xl text-center mb-10 font-crimson font-semibold">Temas cadastrados</h1>
               
-              <div className="w-1/2 min-h-[7rem] flex items-center justify-between px-6 text-bege bg-logoOrange mb-6 rounded-3xl">
-                <div className="flex items-center ml-8 md:gap-2">
+              <div className="w-full lg:w-1/2 min-h-[5rem] md:min-h-[7rem] flex items-center justify-between px-6 text-bege bg-logoOrange mb-6 rounded-3xl">
+                <div className="flex max-md:flex-col items-center sm:ml-2 md:ml-8 md:gap-2">
                   <ModalTema />
-                  <p className="w-full md:w-6 text-[0.6rem] md:text-lg  text-center font-semibold">Novo Tema</p>
+                  <p className="w-full md:w-6 text-[0.6rem] md:text-lg text-center font-semibold">Novo Tema</p>
                 </div>
-                <div className="flex items-center w-1/2 gap-8">
-                  <h2 className="text-3xl font-crimson font-semibold">Filtros:</h2>
+                <div className="flex items-center w-3/5 md:w-1/2 gap-3 md:gap-8">
+                  <h2 className="text-lg md:text-3xl font-crimson font-semibold ">Filtros:</h2>
                   <div onClick={() => buscarTemas(handleSortTema(false))} className="w-10 cursor-pointer">
-                    <FaSortAlphaDown size={'2.5rem'} />
-                    <p className="w-full text-[0.6rem] text-center font-semibold">Crescente</p>
+                    <FaSortAlphaDown className="text-4xl lg:text-[2.5rem]" />
+                    <p className="w-full text-[0.6rem] text-center font-semibold max-md:invisible max-md:absolute">Crescente</p>
                   </div>
                   <div onClick={() => buscarTemas(handleSortTema(true))} className="w-10 cursor-pointer">
-                    <FaSortAlphaDownAlt size={'2.5rem'} />
-                    <p className="w-full text-[0.6rem] text-center font-semibold">Decrescente</p>
+                    <FaSortAlphaDownAlt className="text-4xl lg:text-[2.5rem]" />
+                    <p className="w-full text-[0.6rem] text-center font-semibold max-md:invisible max-md:absolute">Decrescente</p>
                   </div>
                 </div>
               </div>

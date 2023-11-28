@@ -147,63 +147,63 @@ function Cadastro() {
 
         <form 
           onSubmit={cadastrarNovoUsuario} 
-          className='w-11/12 sm:w-4/5 lg:w-1/2 mt-[4.5rem] mb-4 flex flex-col justify-center items-center rounded-3xl px-6 py-4 bg-begeCinzento/70 gap-2'
+          className='w-11/12 sm:w-4/5 lg:w-1/2 lg:mt-[4.5rem] md:mb-4 flex flex-col justify-center items-center rounded-3xl px-6 py-2 md:py-4 bg-begeCinzento/70 gap-2'
         >
-          <h2 className='text-5xl text-bege'> {id != undefined ? 'Editar Usuário' : 'Cadastrar Usuário'} </h2>
+          <h2 className='text-2xl sm:text-3xl md:text-5xl text-bege'> {id != undefined ? 'Editar Usuário' : 'Cadastrar Usuário'} </h2>
           <div className="flex flex-col w-full">
-            <label htmlFor="nome" className="text-white text-lg font-bold">Nome</label>
+            <label htmlFor="nome" className="text-white text-base md:text-lg font-bold max-md:pb-1">Nome</label>
             <input
               type="text"
               id="nome"
               name="nome"
               placeholder="Nome"
-              className="rounded p-2 focus-within:outline-none"
+              className="max-md:text-sm rounded p-2 focus-within:outline-none"
               value={usuarioForm.nome}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
               required
             />
           </div>
           <div className="flex flex-col w-full">
-            <label htmlFor="dataNascimento" className="text-white text-lg font-bold">Data de nascimento</label>
+            <label htmlFor="dataNascimento" className="text-white text-base md:text-lg font-bold max-md:pb-1">Data de nascimento</label>
             <input
               type="date"
               id="dataNascimento"
               name="dataNascimento"
               placeholder="Data de Nascimento"
-              className="rounded p-2 focus-within:outline-none"
+              className="max-md:text-sm rounded p-2 focus-within:outline-none"
               value={usuarioForm.dataNascimento}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
               required
             />
           </div>
           <div className="flex flex-col w-full">
-            <label htmlFor="usuario" className="text-white text-lg font-bold">E-mail</label>
+            <label htmlFor="usuario" className="text-white text-base md:text-lg font-bold max-md:pb-1">E-mail</label>
             <input
               type="email"
               id="usuario"
               name="usuario"
               placeholder="Digite seu e-mail"
-              className="rounded p-2 focus-within:outline-none"
+              className="max-md:text-sm rounded p-2 focus-within:outline-none"
               value={usuarioForm.usuario}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
               required
             />
           </div>
           <div className="flex flex-col w-full">
-            <label htmlFor="foto" className="text-white text-lg font-bold">Foto</label>
+            <label htmlFor="foto" className="text-white text-base md:text-lg font-bold max-md:pb-1">Foto</label>
             <input
               type="text"
               id="foto"
               name="foto"
               placeholder="Url da sua Foto"
-              className="rounded p-2 focus-within:outline-none"
+              className="max-md:text-sm rounded p-2 focus-within:outline-none"
               value={usuarioForm.foto}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
-          <div className="w-full flex justify-between items-center">
-            <div className="flex flex-col w-[45%]">
-              <label htmlFor="senha" className="text-white text-lg font-bold">Senha</label>
+          <div className="w-full flex max-sm:flex-col justify-between items-center max-sm:gap-2">
+            <div className="flex flex-col w-[45%] max-sm:w-full">
+              <label htmlFor="senha" className="text-white text-base md:text-lg font-bold max-md:pb-1">Senha</label>
               <input
                 type="password"
                 id="senha"
@@ -215,8 +215,8 @@ function Cadastro() {
                 required
               />
             </div>
-            <div className="flex flex-col w-[45%]">
-              <label htmlFor="confirmarSenha" className="text-white text-base sm:text-lg font-bold">Confirmar Senha</label>
+            <div className="flex flex-col w-[45%] max-sm:w-full">
+              <label htmlFor="confirmarSenha" className="text-white text-base md:text-lg font-bold max-md:pb-1">Confirmar Senha</label>
               <input
                 type="password"
                 id="confirmarSenha"
@@ -230,7 +230,7 @@ function Cadastro() {
             </div>
           </div>
 
-          <div className="flex justify-around w-full mt-4 gap-8">
+          <div className="flex justify-around w-full text-sm mt-4 gap-8">
             <button className='rounded text-white bg-marrom hover:bg-marrom/70 w-1/2 py-2' onClick={back} >
               Cancelar
             </button>
