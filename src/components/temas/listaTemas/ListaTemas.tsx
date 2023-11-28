@@ -76,7 +76,7 @@ function ListaTemas() {
           />
         </div>
       :
-        <div className="w-full min-h-screen bg-bege flex flex-wrap justify-center items-center pb-14 max-xl:px-2">
+        <div className="w-full h-full md:min-h-screen bg-bege flex flex-wrap justify-center items-center pb-14 max-xl:px-2">
             <div className="flex flex-col justify-center items-center mt-6 md:mt-20 px-2 md:px-6">
               <h1 className="text-3xl lg:text-5xl text-center mb-10 font-crimson font-semibold">Temas cadastrados</h1>
               

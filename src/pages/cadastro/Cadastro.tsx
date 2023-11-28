@@ -138,7 +138,7 @@ function Cadastro() {
     
   return (
     <>
-      <div className="w-full min-h-screen bg-transparent flex justify-center items-center font-bold">
+      <div className="w-full min-h-screen bg-transparent flex justify-center items-center font-bold max-md:p-4" >
         <video 
           src="/img/pexels-c-technical-6334257.mp4" 
           className="-z-10 absolute w-full h-full object-cover"

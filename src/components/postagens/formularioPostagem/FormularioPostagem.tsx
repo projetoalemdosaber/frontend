@@ -67,6 +67,14 @@ function FormularioPostagem(props: {id?: string, back? : () => void}) {
     })
   }, [tema])
 
+  useEffect(() => {
+    if (postagem.video) {
+      setOpcaoMidia(true)
+    } else {
+      setOpcaoMidia(false)
+    }
+  }, [postagem])
+
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     setPostagem({
       ...postagem,
