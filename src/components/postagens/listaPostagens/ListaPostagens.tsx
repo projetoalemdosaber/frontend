@@ -77,10 +77,6 @@ function ListaPostagens() {
                         )
                     )
                 }
-                {/* {postagens.map((postagem) => (
-                    <CardPostagem key={postagem.id} post={postagem} />
-                ))} */}
-
             </div>
         </>
     )

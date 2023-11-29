@@ -30,7 +30,7 @@ function Perfil() {
 
   async function buscarPostagens() {
     try {
-        await buscar('/postagens', setPostagens, {
+        await buscar('/postagens', handlePostagen, {
             headers: {
                 Authorization: token,
             },
@@ -41,6 +41,12 @@ function Perfil() {
             handleLogout()
         }
     }  
+  }
+
+  const handlePostagen = (data) => {
+    setPostagens(
+      data.filter((postagem => postagem.user.id === usuario.id))
+    )
   }
 
   useEffect(() => {
@@ -73,12 +79,20 @@ function Perfil() {
         </div>
       </div>
       <div className='container flex flex-col justify-center items-center'>
-        <h1 className='text-2xl md:text-3xl font-bold mt-8'>Minhas Postagens</h1>
-        <p className='text-lg md:text-xl font-semibold m-4'>Veja as suas postagens, aqui você pode edita-las ou deleta-las.</p>
+        {
+          postagens.length > 0 ?
+            <>
+              <h1 className='text-2xl md:text-3xl font-bold mt-8'>Minhas Postagens</h1>
+              <p className='text-lg md:text-xl font-semibold m-4'>Veja as suas postagens, aqui você pode edita-las ou deleta-las.</p>
+            </>
+          :
+            <h1 className='text-xl md:text-2xl font-bold mt-10'>Você ainda não tem postagens cadastradas.</h1>
+
+        }
+        
         {
           postagens.map(
             (postagem => 
-              postagem.user.id === usuario.id && 
                 <CardPostagem key={postagem.id} post={postagem} owner={true} />
             )
           )

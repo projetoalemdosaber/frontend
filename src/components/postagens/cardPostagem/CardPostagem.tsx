@@ -36,7 +36,7 @@ function CardPostagem({post, owner} : CardPostagemPostagem) {
   const [indicoSelect, setIndicoSelect] = useState(false);
 
   const handleOpenSelect = () => {
-      setOpenSelect((prev) => !prev)
+    setOpenSelect((prev) => !prev)
   }
 
   const [comentarios, setComentarios] = useState([
@@ -192,7 +192,7 @@ function CardPostagem({post, owner} : CardPostagemPostagem) {
                         <BsHandThumbsUp />
                     }
                   </p>
-                  <p className='text-base max-md:text-xs ml-1 md:ml-2 max-sm:invisible max-sm:absolute'>Curtir</p>
+                  <p className='text-base max-md:text-xs ml-1 md:ml-2 max-sm:invisible max-sm:absolute'>Gostei</p>
                 </li>
 
                 <li className='flex items-center cursor-pointer' onClick={() => handleReactionsUpdate('amei')}>
@@ -206,7 +206,6 @@ function CardPostagem({post, owner} : CardPostagemPostagem) {
                       :
                         <IoIosHeartEmpty />
                     }
-
                   </p>
                   <p className='text-base max-md:text-xs ml-1 md:ml-2 max-sm:invisible max-sm:absolute'>Amei</p>
                 </li>
@@ -225,7 +224,6 @@ function CardPostagem({post, owner} : CardPostagemPostagem) {
                   </p>
                   <p className='text-base max-md:text-xs ml-1 md:ml-2 max-sm:invisible max-sm:absolute'>Indico</p>
                 </li>
-
               </ul>
               <p className='mt-3 max-md:text-sm max-sm:text-[0.6rem] text-end'>
                 { new Intl.DateTimeFormat(undefined, {
